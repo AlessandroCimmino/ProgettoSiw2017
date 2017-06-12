@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Galleria d'arte</title>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/mycss.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<header> <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">
+				<img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img>
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#">About</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Dropdown <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul></li>
+			</ul>
+			
+			<form class="navbar-form navbar-right" role="search" method="post" action="">
+				<div class="form-group">
+					<input type="text" class="form-control" name="" value="" placeholder="Email">
+					<input type="text" class="form-control" name="" value="" placeholder="Password">
+				</div>
+				<button type="submit" class="btn btn-default">Sign In
+					<span aria-hidden="true" class="glyphicon glyphicon-log-in"></span>
+				</button>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Sign Up</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid --> </nav> </header>
+
+	<div id="slideshow" class="carousel slide">
+		
+			<!-- Indicatori di posizione -->
+		<ol class="carousel-indicators">
+			<li data-target="#slideshow" data-slide-to="0" class="active"></li>
+			<li data-target="#slideshow" data-slide-to="1"></li>
+			<li data-target="#slideshow" data-slide-to="2"></li>
+		</ol>
+		
+		<div class="carousel-inner">
+			<div class="item active">
+				<img
+					src="http://restaurars.altervista.org/wp-content/uploads/2015/04/Tiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg"
+					alt="Guernica_Picasso">
+				<div class="carousel-caption"></div>
+			</div>
+			<div class="item">
+				<img
+					src="http://cultura.biografieonline.it/wp-content/uploads/2012/10/notte-stellata-sul-rodano-van-gogh.jpg"
+					alt="Notte Stellata">
+				<div class="carousel-caption"></div>
+			</div>
+			<div class="item">
+				<img src="http://restaurars.altervista.org/wp-content/uploads/2015/04/Botticelli-primavera.jpg"
+					alt="la primavera">
+				<div class="carousel-caption"></div>
+			</div>
+		</div>
+
+	
+
+		<!-- Controlli -->
+		<a class="left carousel-control" href="#slideshow" data-slide="prev">
+			<span class="icon-prev"></span>
+		</a> <a class="right carousel-control" href="#slideshow" data-slide="next">
+			<span class="icon-next"></span>
+		</a>
+	</div>
+	<hr class="half-rule">
+	<div>
+		<h1 align="center">About</h1>
+	</div>
+	<hr class="half-rule">
+	<div>
+		<h2 align="center" class="bs-docs-featurette-title">Sign Up</h2>
+		<div class="container">
+			<form method="post" action="" class="form-signin">
+				<label for="inputName" class="sr-only">Name</label><input class="form-control" type="text" placeholder="Name" /><br>
+				<label for="inputSurname" class="sr-only">Surname</label><input class="form-control" type="text" placeholder="Surname" /><br>
+				<label for="inputEmail" class="sr-only">Email</label><input class="form-control" type="text" placeholder="Email" /S><br>
+				<label for="inputPassword" class="sr-only">Password</label><input class="form-control" type="password" placeholder="Password" /><br>
+				<button class="btn btn-lg btn-primary btn-block" type="submit" name="signup" value="Sign up">Sign up</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
