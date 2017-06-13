@@ -5,7 +5,7 @@
 <title>Inserimento quadro</title>
 </head>
 <body>
-	<form name="f" th:action="@{/mostraDatiQuadro}" method="post">
+	<form th:action="@{/mostraDatiQuadro}" method="post">
 		<ul>
 			<li>Titolo*: <input type="text" name="titolo" th:value="${titolo}" /></li>
 			<li>Anno di pubblicazione*: <input type="text" name="anno" th:value="${anno}" /></li>

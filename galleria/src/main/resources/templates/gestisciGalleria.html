@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Gestisci la galleria</title>
+</head>
+<body>
+	<h1>Lista dei quadri:</h1>
+	<ul>
+		<li th:each="quadro : ${quadri}">
+			<a th:text="${quadro.titolo}"></a> - <em th:text="${quadro.autore.cognome}"></em>
+			<form th:action="@{/dettagliQuadro}" method="get">
+				<input type="hidden" name="quadroId" th:value="${quadro.id}" />
+				<input type="submit" name="modificaCancella" th:value="#{label.modificaCancella}" />
+			</form>
+		</li>
+	</ul>
+</body>
+</html>

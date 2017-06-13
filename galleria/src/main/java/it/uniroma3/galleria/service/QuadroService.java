@@ -22,4 +22,8 @@ public class QuadroService {
 	public void add(final Quadro a){
 		this.cr.save(a);
 	}
+
+	public Object findById(Long id) {
+		return this.cr.findOne(id);
+	}
 }

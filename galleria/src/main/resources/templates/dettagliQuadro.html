@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Dettagli quadro</title>
+</head>
+<body>
+	<!-- IMMAGINE -->
+	<div>
+		<strong th:text="#{label.titolo}"></strong><span th:text="${quadro.titolo}"></span><br />
+		<strong th:text="#{label.autore}"></strong><span th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span><br />
+		<strong th:text="#{label.anno}"></strong><span th:text="${quadro.anno}"></span><br />
+		<strong th:text="#{label.tecnica}"></strong><span th:text="${quadro.tecnica}"></span><br />
+		<strong th:text="#{label.dimensione}"></strong><span th:text="${quadro.dimensione}"></span><br />
+	</div>
+	<div>
+		<form></form>
+	</div>
+</body>
+</html>
