@@ -17,14 +17,14 @@ public class Autore {
 	@NotNull
 	@Size(min=1)
 	private String cognome;
-	@NotNull
+//	@NotNull
 	@Size(min=1)
 	private String nazionalita;
 	@Temporal(TemporalType.DATE)
-	@NotNull
+//	@NotNull
 	private Date dataNascita;
 	@Temporal(TemporalType.DATE)
-	@NotNull
+//	@NotNull
 	private Date dataMorte;
 	@OneToMany(mappedBy="autore", fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE})
 	private List<Quadro> quadri;

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Dati quadro inseriti</title>
+</head>
+<body>
+	<h1>Hai inserito questi dati:</h1>
+	<ul>
+		<li><strong>Titolo: </strong><span th:text="${quadro.titolo}"></span></li>
+		<li><strong>Autore: </strong><span th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span></li>
+		<li><strong>Anno di pubblicazione: </strong><span th:text="${quadro.anno}"></span></li>
+		<li><strong>Dimensione: </strong><span th:text="${quadro.dimensione}"></span></li>
+		<li><strong>Tecnica: </strong><span th:text="${quadro.tecnica}"></span></li>
+	</ul>
+	<div><a href="/home">Torna alla home</a></div>
+</body>
+</html>

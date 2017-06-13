@@ -22,4 +22,8 @@ public class AutoreService {
 	public void add(final Autore a){
 		this.cr.save(a);
 	}
+
+	public Autore findById(Long id) {
+		return this.cr.findOne(id);
+	}
 }

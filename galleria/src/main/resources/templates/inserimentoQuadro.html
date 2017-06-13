@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1"></meta>
 <title>Inserimento quadro</title>
 </head>
 <body>
 	<form name="f" th:action="@{/mostraDatiQuadro}" method="post">
-		<input type="text" name="titolo" value="${titolo}" />
-		<input type="text" name="annoPubblicazione" value="${annoPubblicazione}" />
-		<input type="text" name="tecnica" value="${tecnica}" />
-		<input type="text" name="dimensioni" value="${dimensioni}" />
+		<ul>
+			<li>Titolo*: <input type="text" name="titolo" th:value="${titolo}" /></li>
+			<li>Anno di pubblicazione*: <input type="text" name="anno" th:value="${anno}" /></li>
+			<li>Tecnica*: <input type="text" name="tecnica" th:value="${tecnica}" /></li>
+			<li>Dimensione*: <input type="text" name="dimensione" placeholder="hhhhxwwww" th:value="${dimensione}" /></li>
 		
-		<select name="autori" th:each="autore : ${autori}">
-			<!-- ciclo for -->
-			<option selected="selected" value="${autore.nome}"/>
-		</select>
 		
-		<!-- INSERISCI IMMAGINE -->
-		
+		<li>Autore*: 
+			<select name="autoreId">
+				<option th:value="NULL" th:text="#{label.selezionaAutore}"></option>
+            	<option th:each="autore : ${autori}" id="autoreId" th:value="${autore.id}" th:text="${autore.nome}+' '+${autore.cognome}"></option>
+            </select>
+		</li>
+		</ul>
+		<input type="submit" name="Invia" value="Invia" />
 	</form>
 </body>
 </html>
