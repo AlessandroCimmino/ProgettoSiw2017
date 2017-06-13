@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+
+.carousel-inner{
+  width:100%;
+  height:640px;
+}
+
+.navbar-brand img{
+	max-height: 100%;
+}
+
+div.carousel-inner img{
+    width: 100%;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+!nav.navbar div,nav.navbar ul,nav.navbar form,nav.navbar li,nav.navbar input,nav.navbar button,nav.navbar .navbar-brand{ 
+!	height: 100px;
+!	vertical-align: middle;
+!}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type="name"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type="surname"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.half-rule {
+    width: 100px;
+    margin: 40px auto;
+}

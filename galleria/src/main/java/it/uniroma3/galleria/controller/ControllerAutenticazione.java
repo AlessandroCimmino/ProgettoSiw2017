@@ -1,7 +1,7 @@
 package it.uniroma3.galleria.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ControllerAutenticazione {
@@ -11,5 +11,13 @@ public class ControllerAutenticazione {
 	    return "login";
 	  }
 	  
+	  @GetMapping("/home")
+	  public String home(){
+		  return "home";
+	  }
 	  
+	  @RequestMapping("/index")
+	  public String index(){
+		  return "index";
+	  }
 }

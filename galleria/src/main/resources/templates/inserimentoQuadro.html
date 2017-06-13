@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Inserimento quadro</title>
+</head>
+<body>
+	<form name="f" th:action="@{/mostraDatiQuadro}" method="post">
+		<input type="text" name="titolo" value="${titolo}" />
+		<input type="text" name="annoPubblicazione" value="${annoPubblicazione}" />
+		<input type="text" name="tecnica" value="${tecnica}" />
+		<input type="text" name="dimensioni" value="${dimensioni}" />
+		
+		<select name="autori" th:each="autore : ${autori}">
+			<!-- ciclo for -->
+			<option selected="selected" value="${autore.nome}"/>
+		</select>
+		
+		<!-- INSERISCI IMMAGINE -->
+		
+	</form>
+</body>
+</html>
