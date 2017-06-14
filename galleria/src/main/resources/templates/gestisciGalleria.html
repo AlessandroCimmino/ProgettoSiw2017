@@ -34,6 +34,7 @@
 					<ul class="nav navbar-nav">
 						<li><a href="/home">Home</a></li>
 						<li><a th:href="@{/inserimentoQuadro}" th:text="#{label.inserisciQuadro}"></a></li>
+						<li><a th:href="@{/cercaOpera}" th:text="#{label.cercaOpera}"></a></li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
@@ -45,11 +46,13 @@
 			<!-- /.container-fluid -->
 		</nav>
 	</header>
+	
 	<div>
 	<h1>Lista dei quadri:</h1></div>
 	<ul>
 		<li th:each="quadro : ${quadri}">
-			<a th:text="${quadro.titolo}"></a> - <em th:text="${quadro.autore.cognome}"></em>
+			<strong th:text="${quadro.titolo}"></strong> - <em th:text="${quadro.autore.cognome}"></em>
+			
 			<form th:action="@{/dettagliQuadro}" method="get">
 				<input type="hidden" name="quadroId" th:value="${quadro.id}" />
 				<input type="submit" name="modificaCancella" th:value="#{label.modificaCancella}" />

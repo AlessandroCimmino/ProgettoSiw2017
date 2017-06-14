@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import it.uniroma3.galleria.model.Quadro;
 import it.uniroma3.galleria.service.AutoreService;
 import it.uniroma3.galleria.service.QuadroService;
 
@@ -26,7 +24,7 @@ public class ControllerGestioneGalleria {
 	}
 	
 	@GetMapping("/gestisciGalleria")
-    public String mostraQuadri(Model model) {
+    public String mostraQuadri(Model model){
 		model.addAttribute("quadri", this.qs.findAll());
 		return "gestisciGalleria";
 	}

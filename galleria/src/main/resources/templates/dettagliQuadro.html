@@ -53,13 +53,14 @@
 		<strong th:text="#{label.dimensione}"></strong><span th:text="${quadro.dimensione}"></span><br />
 	</div>
 	<div>
-		<form th:action="@{/confermaCancellazioneQuadro}" method="post">
-			<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
-			<input type="submit" name="cancellaQuadro" value="Cancella"/>
-		</form>
 		<form th:action="@{/modificaQuadro}" method="post">
 			<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
 			<input type="submit" name="modificaQuadro" value="Modifica"/>
+		</form>
+		<br />
+		<form th:action="@{/confermaCancellazioneQuadro}" method="post">
+			<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
+			<input type="submit" name="cancellaQuadro" value="Cancella"/>
 		</form>
 	</div>
 </body>
