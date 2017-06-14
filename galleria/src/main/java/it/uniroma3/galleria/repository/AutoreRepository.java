@@ -5,7 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import it.uniroma3.galleria.model.Autore;
 
 public interface AutoreRepository extends CrudRepository<Autore,Long>{
-	
-	@Override
-	public Iterable<Autore> findAll();
+
+	public Autore findByCognome(String cognome);
 }

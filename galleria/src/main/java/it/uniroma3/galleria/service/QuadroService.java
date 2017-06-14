@@ -1,5 +1,7 @@
 package it.uniroma3.galleria.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Quadro;
+import it.uniroma3.galleria.repository.AutoreRepository;
 import it.uniroma3.galleria.repository.QuadroRepository;;
 
 @Service
@@ -14,6 +17,9 @@ public class QuadroService {
 
 	@Autowired
 	private QuadroRepository cr;
+	
+	@Autowired
+	private AutoreRepository ar;
 
 	public Iterable<Quadro> findAll(){
 		return this.cr.findAll();
@@ -41,5 +47,18 @@ public class QuadroService {
 		quadro.setTecnica(tecnica);
 		quadro.setTitolo(titolo);
 		this.cr.save(quadro);	
+	}
+
+	public List<Quadro> findAllByCriterio(String chiave, String criterio) {
+		if(criterio.equals("Titolo")) 
+			return this.cr.findByTitolo(chiave);
+		else if(criterio.equals("Autore")) 
+			return this.cr.findByAutore(this.ar.findByCognome(chiave));
+		else if(criterio.equals("Dimensione"))
+			return this.cr.findByDimensione(chiave);
+		else if(criterio.equals("Tecnica"))
+			return this.cr.findByTecnica(chiave);
+		else
+			return this.cr.findByAnno(chiave);
 	}
 }

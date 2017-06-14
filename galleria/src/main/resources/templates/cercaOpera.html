@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<title>Cerca opera</title>
+</head>
+<body>
+	<form th:action="@{/cercaOpera}" method="post">
+		<div>Cerca opera per: 
+			<select name="criterioDiRicerca">
+				<option selected="selected">Titolo</option>
+				<option>Autore</option>
+				<option>Anno</option>
+				<option>Dimensione</option>
+				<option>Tecnica</option>
+			</select>
+		</div>
+		<div>
+			<input type="text" name="chiaveDiRicerca" placeholder="Inserisci la chiave di ricerca" />
+			<input type="submit" name="cerca" value="Cerca"/>
+		</div>
+	</form>
+	<h1>Lista opere:</h1>
+	<ol>
+		<li th:each="quadro : ${quadri}">
+			<a th:href="@{/dettagliQuadro(quadroId=${quadro.id})}" th:text="${quadro.titolo}"></a> - 
+			<span th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span>
+		</li>
+	</ol>
+</body>
+</html>
