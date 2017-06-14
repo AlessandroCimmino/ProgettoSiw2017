@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Conferma cancellazione</title>
+</head>
+<body>
+	<div>
+		<strong th:text="#{label.titolo}"></strong><span th:text="${quadro.titolo}"></span><br />
+		<strong th:text="#{label.autore}"></strong><span th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span><br />
+		<strong th:text="#{label.anno}"></strong><span th:text="${quadro.anno}"></span><br />
+		<strong th:text="#{label.tecnica}"></strong><span th:text="${quadro.tecnica}"></span><br />
+		<strong th:text="#{label.dimensione}"></strong><span th:text="${quadro.dimensione}"></span><br />
+	</div>
+	<hr></hr>
+	<div>
+		<p>Sei sicuro di voler cancellare questo quadro?</p>
+	</div>
+	<div>
+		<form th:action="@{/gestisciGalleria}" method="post">
+			<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
+			<input type="submit" name="confermaCancellazioneQuadro" value="Conferma"/>
+		</form>
+		
+		<form th:action="@{/dettagliQuadro}" method="post">
+			<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
+			<input type="submit" name="annullaCancellazioneQuadro" value="Annulla"/>
+		</form>
+	</div>
+</body>
+</html>

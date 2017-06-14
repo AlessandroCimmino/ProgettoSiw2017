@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Quadro;
 import it.uniroma3.galleria.service.AutoreService;
 import it.uniroma3.galleria.service.QuadroService;
