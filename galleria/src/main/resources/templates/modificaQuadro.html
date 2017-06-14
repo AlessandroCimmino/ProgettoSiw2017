@@ -56,8 +56,7 @@
 		
 				<li>Autore: 
 					<select name="autoreId">
-						<option th:value="${quadro.autore.id}" th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></option>
-           				<option th:each="autore : ${autori}" id="autoreId" th:value="${autore.id}" th:text="${autore.nome}+' '+${autore.cognome}"></option>
+           				<option th:each="autore : ${autori}" id="autoreId" th:selected="${autore.id==quadro.autore.id}" th:value="${autore.id}" th:text="${autore.nome}+' '+${autore.cognome}"></option>
            			</select>
 				</li>
 			</ul>

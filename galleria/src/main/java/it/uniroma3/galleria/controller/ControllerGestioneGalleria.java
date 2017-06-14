@@ -20,8 +20,7 @@ public class ControllerGestioneGalleria {
 	private AutoreService as;
 
 	@GetMapping("/dettagliQuadro")
-    public String mostraDettagli(Model model,
-    						@RequestParam(value="quadroId") Long id) {
+    public String mostraDettagliQuadro(Model model, @RequestParam(value="quadroId") Long id) {
 		model.addAttribute("quadro", this.qs.findById(id));
 		return "dettagliQuadro";
 	}
@@ -42,19 +41,13 @@ public class ControllerGestioneGalleria {
 	@PostMapping("/gestisciGalleria")
 	public String cancellaQuadro(Model model,@RequestParam(value="quadroId") Long id){
 		qs.removeById(id);
-		return "gestisciGalleria";
+		return mostraQuadri(model);
 	}
 	
-	@RequestMapping(value="dettagliQuadro",params="annullaCancellazioneQuadro")
-	public String annullaCancellazione(Model model,@RequestParam(value="quadroId") Long id){
-		model.addAttribute("quadro", qs.findById(id));
-		return "dettagliQuadro";
-	}
-	
-
 	@PostMapping("/modificaQuadro")
 	public String iniziaModificaQuadro(Model model,@RequestParam(value="quadroId") Long id){
-		model.addAttribute("quadro", qs.findById(id));
+		model.addAttribute("quadro", this.qs.findById(id));
+		model.addAttribute("autori", this.as.findAll());
 		return "modificaQuadro";
 	}
 
@@ -63,13 +56,9 @@ public class ControllerGestioneGalleria {
 								@RequestParam(value="titolo") String titolo,@RequestParam(value="anno") String anno,
 								@RequestParam(value="tecnica") String tecnica,@RequestParam(value="dimensione") String dimensione,
 								@RequestParam(value="autoreId") Long autoreId,@RequestParam(value="quadroId") Long quadroId){
-		
-		Quadro quadro =qs.findById(quadroId);
 		if(modifica!=null){
-			qs.aggiorna(titolo,anno,tecnica,dimensione,as.findById(autoreId),quadro);
+			qs.aggiorna(titolo,anno,tecnica,dimensione,as.findById(autoreId),qs.findById(quadroId));
 		}
-		model.addAttribute("quadro", quadro);
-		return "dettagliQuadro";
-		
+		return mostraDettagliQuadro(model, quadroId);
 	}
 }

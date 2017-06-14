@@ -22,7 +22,7 @@
 			<input type="submit" name="confermaCancellazioneQuadro" value="Conferma"/>
 		</form>
 		
-		<form th:action="@{/dettagliQuadro}" method="post">
+		<form th:action="@{/dettagliQuadro}" method="get">
 			<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
 			<input type="submit" name="annullaCancellazioneQuadro" value="Annulla"/>
 		</form>

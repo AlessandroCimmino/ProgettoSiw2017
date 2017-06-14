@@ -36,11 +36,11 @@
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">Quadri
+								aria-expanded="false" th:text="#{label.galleria}">Galleria
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#" th:text="#{label.vaiAllaGalleria}">Vai alla galleria</a></li>
+								<li><a th:href="@{/galleria}" th:text="#{label.vaiAllaGalleria}">Vai alla galleria</a></li>
 								<li class="divider"></li>
 								<li><a th:href="@{/gestisciGalleria}" th:text="#{label.gestisciGalleria}">Gestisci la galleria</a></li>
 							</ul>
@@ -56,5 +56,49 @@
 			<!-- /.container-fluid -->
 		</nav>
 	</header>
+	<div id="slideshow" class="carousel slide">
+
+		<!-- Indicatori di posizione -->
+		<ol class="carousel-indicators">
+			<li data-target="#slideshow" data-slide-to="0" class="active"></li>
+			<li data-target="#slideshow" data-slide-to="1"></li>
+			<li data-target="#slideshow" data-slide-to="2"></li>
+		</ol>
+
+		<div class="carousel-inner">
+			<div class="item active">
+				<img 
+					src="http://restaurars.altervista.org/wp-content/uploads/2015/04/Tiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg"
+					alt="Guernica_Picasso"></img>
+				<div class="carousel-caption"></div>
+			</div>
+			<div class="item">
+				<img
+					src="http://cultura.biografieonline.it/wp-content/uploads/2012/10/notte-stellata-sul-rodano-van-gogh.jpg"
+					alt="Notte Stellata"></img>
+				<div class="carousel-caption"></div>
+			</div>
+			<div class="item">
+				<img
+					src="http://restaurars.altervista.org/wp-content/uploads/2015/04/Botticelli-primavera.jpg"
+					alt="la primavera"></img>
+				<div class="carousel-caption"></div>
+			</div>
+		</div>
+
+		<!-- Controlli -->
+		<a class="left carousel-control" href="#slideshow" data-slide="prev">
+			<span class="icon-prev"></span>
+		</a>
+		<a class="right carousel-control" href="#slideshow" data-slide="next">
+			<span class="icon-next"></span>
+		</a>
+	</div>
+	
+	<hr class="half-rule"></hr>
+	
+	<div>
+		<h1 align="center">About</h1>
+	</div>
 </body>
 </html>
