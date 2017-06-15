@@ -40,7 +40,7 @@ public class QuadroService {
 	}
 
 	@Transactional
-	public void aggiorna(String titolo, String anno, String tecnica, String dimensione, Autore autore,Quadro quadro) {
+	public void aggiorna(String titolo, Integer anno, String tecnica, String dimensione, Autore autore,Quadro quadro) {
 		quadro.setAnno(anno);
 		quadro.setAutore(autore);
 		quadro.setDimensione(dimensione);

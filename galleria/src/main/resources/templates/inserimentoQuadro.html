@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8"></meta>
 <title>Inserimento quadro</title>
@@ -18,19 +19,21 @@
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">
-						<img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img>
+					<a class="navbar-brand" href="#"> <img
+						src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg"
+						alt="brand"></img>
 					</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="/home">Home</a></li>
 					</ul>
@@ -44,20 +47,36 @@
 			<!-- /.container-fluid -->
 		</nav>
 	</header>
-	<form th:action="@{/mostraDatiQuadro}" method="post">
+	<form th:action="@{/mostraDatiQuadro}" method="post"
+		th:object="${quadro}">
 		<ul>
-			<li>Titolo*: <input type="text" name="titolo" /></li>
-			<li>Anno di pubblicazione*: <input type="text" name="anno" /></li>
-			<li>Tecnica*: <input type="text" name="tecnica"/></li>
-			<li>Dimensione*: <input type="text" name="dimensione" placeholder="hhhhxwwww" /></li>
-		
-		
-		<li>Autore*: 
-			<select name="autoreId">
-				<option th:value="NULL" th:text="#{label.selezionaAutore}"></option>
-            	<option th:each="autore : ${autori}" id="autoreId" th:value="${autore.id}" th:text="${autore.nome}+' '+${autore.cognome}"></option>
-            </select>
-		</li>
+			<li>Titolo*: <input type="text" th:field="*{titolo}" /> <span
+				th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Error</span>
+			</li>
+			
+			<li>Tecnica*: <input type="text" th:field="*{tecnica}" /> <span
+				th:if="${#fields.hasErrors('tecnica')}" th:text="#{label.mandatory}">Error</span>
+			</li>
+			<li>Anno di pubblicazione*: <input type="text"
+				th:field="*{anno}" /> <span th:if="${#fields.hasErrors('anno')}"
+				th:text="#{label.annoValido}">Error</span>
+			</li>
+			<li>Dimensione*: <input type="text" th:field="*{dimensione}"
+				placeholder="hhhhxwwww" /> <span
+				th:if="${#fields.hasErrors('dimensione')}"
+				th:text="#{label.mandatory}">Error</span>
+			</li>
+
+
+			<li>Autore*: <select th:field="*{autore}">
+					<option th:value="NULL" th:selected="*{autore}==NULL"
+						th:text="#{label.selezionaAutore}"></option>
+					<option th:each="autoreSelezionato : ${autori}"
+						th:selected="*{autore}" th:value="${autoreSelezionato.id}"
+						th:text="${autoreSelezionato.nome}+' '+${autoreSelezionato.cognome}"></option>
+			</select> <span th:if="${#fields.hasErrors('autore')}"
+				th:text="#{label.mandatory}">Error</span>
+			</li>
 		</ul>
 		<input type="submit" name="Invia" value="Invia" />
 	</form>

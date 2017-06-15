@@ -1,6 +1,7 @@
 package it.uniroma3.galleria.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -14,8 +15,8 @@ public class Quadro {
 	@Size(min=1)
 	private String titolo;
 	@NotNull
-	@Size(min=1)
-	private String anno;
+	@Max(2017)
+	private Integer anno;
 	@NotNull
 	@Size(min=1)
 	private String tecnica;
@@ -29,7 +30,7 @@ public class Quadro {
 		
 	}
 	
-	public Quadro(String titolo,String anno,String tecnica,String dimensione){
+	public Quadro(String titolo,Integer anno,String tecnica,String dimensione){
 		this.titolo=titolo;
 		this.dimensione=dimensione;
 		this.anno=anno;
@@ -49,11 +50,11 @@ public class Quadro {
 		this.titolo = titolo;
 	}
 
-	public String getAnno() {
+	public Integer getAnno() {
 		return anno;
 	}
 
-	public void setAnno(String anno) {
+	public void setAnno(Integer anno) {
 		this.anno = anno;
 	}
 

@@ -51,7 +51,7 @@ public class ControllerGestioneGalleria {
 
 	@PostMapping("/dettagliQuadro")
 	public String modificaAnnulla(Model model,@RequestParam(required=false,value="modificaQuadro") String modifica,
-								@RequestParam(value="titolo") String titolo,@RequestParam(value="anno") String anno,
+								@RequestParam(value="titolo") String titolo,@RequestParam(value="anno") Integer anno,
 								@RequestParam(value="tecnica") String tecnica,@RequestParam(value="dimensione") String dimensione,
 								@RequestParam(value="autoreId") Long autoreId,@RequestParam(value="quadroId") Long quadroId){
 		if(modifica!=null){
