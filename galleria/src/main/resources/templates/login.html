@@ -4,9 +4,9 @@
   </head>
   <body>
     <div>
-        <form name="f" th:action="@{/home}" method="post">               
+        <form name="f" th:action="@{/login}" method="post">               
             <fieldset>
-                <legend>Autenticazione(html)</legend>
+                <legend>Autenticazione</legend>
                 <div th:if="${param.error}" class="alert alert-error">    
                     Invalid username and password.
                 </div>
