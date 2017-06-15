@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:tiles="http://www.thymeleaf.org">
+	xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8"></meta>
 <title>Galleria d'arte</title>
 
 <script type="text/javascript"
@@ -48,7 +48,10 @@
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Logout</a></li>
+						<li><form th:action="@{/logout}" method="post">
+         						<input type="submit" value="Sign Out"/>
+     						</form>
+     					</li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
