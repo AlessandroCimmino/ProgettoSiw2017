@@ -44,8 +44,8 @@ public class ControllerInserimentoQuadro {
 //		return "mostraDatiQuadro";
 //	}
 	
-	@PostMapping("/mostraDatiQuadro")
-	public String mostraDatiQuadro(@Valid @ModelAttribute Quadro quadro,
+	@PostMapping("/mostraDatiInserimentoQuadro")
+	public String mostraDatiInserimentoQuadro(@Valid @ModelAttribute Quadro quadro,
 								BindingResult bindingResult, Model model){
 		if (bindingResult.hasErrors()) {
             return inserimentoQuadro(model,quadro);
@@ -54,6 +54,6 @@ public class ControllerInserimentoQuadro {
         	model.addAttribute(quadro);
             this.qs.add(quadro);
         }
-        return "mostraDatiQuadro";
+        return "mostraDatiInserimentoQuadro";
 	}
 }
