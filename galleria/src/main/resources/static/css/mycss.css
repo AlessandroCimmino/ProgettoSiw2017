@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
+@font-face{
+	font-family: komoda;
+	scr: url("fonts/Komoda.otf");	
+}
+
 .carousel-inner{
   width:100%;
   height:640px;
@@ -11,6 +16,10 @@
 
 div.carousel-inner img{
     width: 100%;
+}
+
+div.page-header{
+	padding : 15px
 }
 
 .navbar {
@@ -28,12 +37,22 @@ div.carousel-inner img{
   margin: 0 auto;
 }
 
+h1#titolo{
+	border: 5px solid #c3c3c3;	
+	padding: 10px 0;
+	color: #c3c3c3;
+	font-family: Garamond, serif;
+}
+
+#about{
+	color: #c3c3c3;
+}
 .form-signin .form-control {
   position: relative;
   height: auto;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+	-moz-box-sizing: border-box;
+  box-sizing: border-box;
   padding: 10px;
   font-size: 16px;
 }

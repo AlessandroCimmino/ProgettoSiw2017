@@ -2,6 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="css/mycss.css" rel="stylesheet" type="text/css" />
 <title>Dati quadro inseriti</title>
 </head>
 <body>
@@ -14,5 +18,9 @@
 		<li><strong>Tecnica: </strong><span th:text="${quadro.tecnica}"></span></li>
 	</ul>
 	<div><a href="/home">Torna alla home</a></div>
+	
+	<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
