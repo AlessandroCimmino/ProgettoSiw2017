@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		http.exceptionHandling().accessDeniedPage("/403");
 		http.authorizeRequests()
 		.antMatchers("/","/home").permitAll()
-		.anyRequest().authenticated()
+//		.anyRequest().authenticated()
 		.and()
 		.formLogin().defaultSuccessUrl("/", true);
 		

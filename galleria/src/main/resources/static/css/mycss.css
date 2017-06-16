@@ -1,18 +1,19 @@
 @CHARSET "UTF-8";
 
-@font-face{
-	font-family: komoda;
-	scr: url("fonts/Komoda.otf");	
+body{
+	background-color: gray;
 }
 
 .carousel-inner{
-  width:100%;
-  height:640px;
+  width: 100%;
+  height: 640px;
 }
 
 .navbar-brand img{
 	max-height: 100%;
 }
+
+
 
 div.carousel-inner img{
     width: 100%;
@@ -37,16 +38,17 @@ div.page-header{
   margin: 0 auto;
 }
 
-h1#titolo{
-	border: 5px solid #c3c3c3;	
-	padding: 10px 0;
-	color: #c3c3c3;
+#titolo{
+	border: 7px solid white;	
+	padding: 30px 0;
+	color: white; 
 	font-family: Garamond, serif;
+	font-size: 70;
+    font-weight: bold;
 }
+!#c3c3c3
 
-#about{
-	color: #c3c3c3;
-}
+
 .form-signin .form-control {
   position: relative;
   height: auto;
@@ -88,4 +90,63 @@ h1#titolo{
 .half-rule {
     width: 100px;
     margin: 40px auto;
+}
+
+#slideshow .carousel-control{
+	background-image: none;
+}
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+  height: 100%;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+
+/*
+  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+  Need to override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      display: flex;
+	  align-items: center;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
 }
