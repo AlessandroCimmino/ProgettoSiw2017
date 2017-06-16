@@ -215,7 +215,8 @@ header {
 	background-size: cover;
 	-o-background-size: cover;
 	text-align: center;
-	color: #fff
+	color: #fff;
+	height: 100%;
 }
 
 header .intro-text {
@@ -243,7 +244,7 @@ header .intro-text .intro-heading {
 
 @media ( min-width :768px) {
 	header .intro-text {
-		padding-top: 300px;
+		padding-top: 250px;
 		padding-bottom: 200px
 	}
 	header .intro-text .intro-lead-in {
@@ -290,7 +291,7 @@ section h3.section-subheading {
 
 @media ( min-width :768px) {
 	section {
-		padding: 150px 0
+		padding: 100px 0
 	}
 }
 
@@ -372,7 +373,8 @@ footer span.copyright, footer ul.quicklinks {
 }
 
 #portfolio * {
-	z-index: 2
+	z-index: 2;
+	margin: 0 auto;
 }
 
 @media ( min-width :767px) {
@@ -442,7 +444,7 @@ footer span.copyright, footer ul.quicklinks {
 	height: 80px;
 	position: absolute;
 	z-index: 100;
-	background-color: #fed136;
+	background-color: #2d011e;
 	color: #fff;
 	border-radius: 100%;
 	border: 7px solid #f1f1f1;
@@ -572,6 +574,10 @@ footer span.copyright, footer ul.quicklinks {
 .team-member img {
 	margin: 0 auto;
 	border: 7px solid #fff
+}
+
+.social-buttons img {
+	border: 0px;
 }
 
 .team-member h4 {

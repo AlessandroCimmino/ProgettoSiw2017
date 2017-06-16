@@ -28,7 +28,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">GalleriaLogo
+				<a class="navbar-brand page-scroll" href="#page-top">Smart Gallery
 					<!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
 				</a>
 			</div>
@@ -101,7 +101,7 @@
 				 <div th:each="quadro: ${quadri}" class="col-lg-3 col-md-4 col-xs-6 thumb">
 				 	<div class="opera">
   						<a class="thumbnail" th:href="@{/dettagliQuadro(quadroId=${quadro.id})}">
-                   			 <img class="img-responsive image" src="img/header-bg.jpg" alt=""/>
+                   			 <img class="img-responsive image" src="img/abstract-bg.jpg" alt=""/>
               
   						<div class="middle">
   							  <div class="descrizioneOpera" th:text="${quadro.titolo} + ' - ' + ${quadro.autore.cognome}" ></div>

@@ -35,8 +35,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">GalleriaLogo
-					<!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
+				<a class="navbar-brand page-scroll" href="#page-top">Smart
+					Gallery <!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
 				</a>
 			</div>
 
@@ -50,7 +50,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-
+					
 					<!-- DROPDOWN
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -68,18 +68,13 @@
 
 
 
-
+					<li><a class="page-scroll" href="#portfolio">Galleria</a></li>
 					<li><a class="page-scroll" href="#about">About</a></li>
-					<li><a class="page-scroll" href="#services">Galleria</a></li>
+
 					<!-- visualizza galleria,cercaopera -->
 					<li><a class="page-scroll" href="#team">Team</a></li>
-					<li><a class="page-scroll" href="#contact">Contact</a></li>
-
-					<!-- PULSANTE DI LOGIN PER L'AMMINISTRATORE 
-					
-					<li><form th:action="@{/login}" method="post">
-							<input type="submit" value="Login" />
-						</form></li>-->
+					<li><a class="page-scroll" th:href="@{/login}">Login
+							Amministratore</a></li>
 
 				</ul>
 
@@ -96,11 +91,11 @@
 			<div class="intro-text">
 				<div class="intro-lead-in">Benvenuto!</div>
 
-				<div class="col-md-6 col-md-offset-3" id="titolo" align="center">Galleria
+				<div class="col-md-6 col-md-offset-3" id="intestazione" align="center">Galleria
 					d'arte</div>
 			</div>
 		</div>
-		<a href="#services" class="page-scroll btn btn-xl">Read More</a>
+		<a href="#portfolio" class="page-scroll btn btn-xl">Leggi ancora</a>
 
 	</header>
 
@@ -122,13 +117,51 @@
 	</section>
  -->
 
-	<section id="about" class="about-section">
+	<section id="portfolio" class="bg-light-gray">
+		<div class="container">
+			<div class="row">
+				<div id="titolo-portfolio" class="col-lg-12 text-center">
+					<h2 class="section-heading">La nostra Galleria</h2>
+					<h3 class="section-subheading text-muted">L'arte del futuro.</h3>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 col-sm-6 portfolio-item">
+					<a th:href="@{/galleria}">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content"></div>
+						</div> <img src="img/galleria-portfolio.jpg" class="img-responsive"
+						alt="" />
+					</a>
+					<div class="portfolio-caption">
+						<h4>Vai alla Galleria</h4>
+						<p class="text-muted">Visual Experience</p>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-sm-6 portfolio-item">
+					<a th:href="@{/cercaOpera}">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content"></div>
+						</div> <img src="img/cercaopera-portfolio.jpg" class="img-responsive"
+						alt="" />
+					</a>
+					<div class="portfolio-caption">
+						<h4>Cerca un'opera</h4>
+						<p class="text-muted">dalla lista di tutte le opere!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="about" class="about-section bg-dark-gray">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<h2 class="section-heading">About</h2>
-					<h3 class="section-subheading text-muted">Lorem ipsum dolor
-						sit amet consectetur.</h3>
+					<h3 class="section-subheading text-muted">La nostra storia</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -145,17 +178,14 @@
 									<h4 class="subheading">I Primi Passi</h4>
 								</div>
 								<div class="timeline-body">
-									<p class="text-muted">Lorem ipsum dolor sit amet,
-										consectetur adipisicing elit. Sunt ut voluptatum eius
-										sapiente, totam reiciendis temporibus qui quibusdam,
-										recusandae sit vero unde, sed, incidunt et ea quo dolore
-										laudantium consectetur!</p>
+									<p class="text-muted">Un sogno. Un ideale. Un'ispirazione.
+									</p>
 								</div>
 							</div>
 						</li>
 						<li class="timeline-inverted">
 							<div class="timeline-image">
-								<img class="img-circle img-responsive" src="img/seed-about.png"
+								<img class="img-circle img-responsive" src="img/tree-about.png"
 									alt="" />
 							</div>
 							<div class="timeline-panel">
@@ -164,12 +194,15 @@
 									<h4 class="subheading">La Galleria è Nata</h4>
 								</div>
 								<div class="timeline-body">
-									<p class="text-muted">Lorem ipsum dolor sit amet,
-										consectetur adipisicing elit. Sunt ut voluptatum eius
-										sapiente, totam reiciendis temporibus qui quibusdam,
-										recusandae sit vero unde, sed, incidunt et ea quo dolore
-										laudantium consectetur!</p>
+									<p class="text-muted">Il sogno diventato realtà!</p>
 								</div>
+							</div>
+						</li>
+						<li class="timeline-inverted">
+							<div class="timeline-image">
+								<h4>
+									Entra a far parte <br />Della nostra <br />Storia!
+								</h4>
 							</div>
 						</li>
 					</ul>
@@ -179,12 +212,52 @@
 		</div>
 	</section>
 
+	<section id="team" class="bg-light-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Il Nostro Team</h2>
+					<!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor
+						sit amet consectetur.</h3> -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="team-member">
+						<img src="img/grootq-team.jpg" class="img-responsive img-circle"
+							alt="" />
+						<h4>Alessandro Cimmino</h4>
+						<p class="text-muted">Engineering Student</p>
+						<ul class="list-inline social-buttons">
+							<li><a href="https://github.com/AlessandroCimmino"><img
+									src="img/GitHub-Mark-Light-120px-plus.png"
+									class="img-responsive img-circle" alt="" /></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="team-member">
+						<img src="img/stormq-team.jpg" class="img-responsive img-circle"
+							alt="" />
+						<h4>Eleonora Bartolomucci</h4>
+						<p class="text-muted">Engineering Student</p>
+						<ul class="list-inline social-buttons">
+							<li><a href="https://github.com/EleonoraBartolomucci"><img
+									src="img/GitHub-Mark-Light-120px-plus.png"
+									class="img-responsive img-circle" alt="" /></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
 	<script type="text/javascript"
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/scrolling-nav.js"></script>
 	<script type="text/javascript" src="bootstrap/js/jquery.easing.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/agency.min.js"></script>
-
 </body>
 </html>
