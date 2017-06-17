@@ -62,3 +62,10 @@ all'autore, all'anno di pubblicazione, alle dimensioni o alla tecnica.
 
 
 
+-------------------------------------------------------------------
+
+Partecipanti al progetto:
+
+ALESSANDRO CIMMINO
+
+ELEONORA BARTOLOMUCCI
