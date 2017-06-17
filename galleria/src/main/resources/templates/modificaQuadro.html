@@ -48,6 +48,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a class="page-scroll" th:href="@{/inserimentoQuadro}">Inserisci un nuovo quadro</a></li>
 					<li><a class="page-scroll" th:href="@{/dettagliQuadro?quadroId=${quadro.id}}">Torna ai dettagli</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

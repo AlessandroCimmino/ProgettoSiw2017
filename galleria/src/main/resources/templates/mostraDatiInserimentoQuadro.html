@@ -46,6 +46,7 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a href="/home">Home</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/gestisciGalleria}">Gestisci la galleria</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -53,7 +54,7 @@
 
 
 					<li><a th:href="@{/galleria}">Galleria</a></li>
-					<li><form th:href="@{/logout}" method="post">Logout</form></li>
+				<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
 
 

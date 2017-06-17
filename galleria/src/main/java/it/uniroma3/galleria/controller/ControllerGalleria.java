@@ -37,4 +37,11 @@ public class ControllerGalleria {
 		model.addAttribute("autori", this.as.findAll());
 		return "cercaOpera";
 	}
+	
+	
+	@RequestMapping(value="/cercaOpera",params="confermaCancellazioneQuadro")
+	public String quadroRimosso(Model model,@RequestParam(value="quadroId") Long id){
+		qs.removeById(id);
+		return visualizzaTutteLeOpere(model);
+	}
 }

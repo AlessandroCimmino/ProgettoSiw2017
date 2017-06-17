@@ -42,11 +42,13 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a href="/home">Home</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/gestisciGalleria}">Gestisci la galleria</a></li>
 				</ul>
 				
 				
 				<ul class="nav navbar-nav navbar-right">
 					<li><a class="page-scroll" th:href="@{/cercaOpera}">Torna alla ricerca</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -67,13 +69,13 @@
       			<div class="col-sm-7">
        			   <img src="img/abstract-bg.jpg" class="img-responsive"/>
        			   		<div class="row">
-       			   			<div class="col-md-2 col-md-offset-4 modificaCancella">
+       			   			<div sec:authorize="isAuthenticated()" class="col-md-2 col-md-offset-4 modificaCancella">
 								<form th:action="@{/modificaQuadro}" method="post">
 									<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
 									<button type="submit" class="btn btn-primary">Modifica</button>
 								</form>
 							</div>
-							<div class="col-md-2 modificaCancella">
+							<div sec:authorize="isAuthenticated()" class="col-md-2 modificaCancella">
 								<form th:action="@{/confermaCancellazioneQuadro}" method="post">
 									<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
 									<button type="submit" class="btn btn-primary">Cancella</button>

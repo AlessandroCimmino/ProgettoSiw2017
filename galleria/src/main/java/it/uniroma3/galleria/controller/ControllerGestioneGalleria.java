@@ -23,11 +23,11 @@ public class ControllerGestioneGalleria {
 		return "dettagliQuadro";
 	}
 	
-	@GetMapping("/gestisciGalleria")
-    public String mostraQuadri(Model model){
-		model.addAttribute("quadri", this.qs.findAll());
-		return "gestisciGalleria";
-	}
+//	@GetMapping("/gestisciGalleria")
+//    public String mostraQuadri(Model model){
+//		model.addAttribute("quadri", this.qs.findAll());
+//		return "gestisciGalleria";
+//	}
 	
 
 	@PostMapping("/confermaCancellazioneQuadro")
@@ -35,12 +35,13 @@ public class ControllerGestioneGalleria {
 		model.addAttribute("quadro",qs.findById(id));
 		return "confermaCancellazioneQuadro";
 	}
+
 	
-	@PostMapping("/gestisciGalleria")
-	public String cancellaQuadro(Model model,@RequestParam(value="quadroId") Long id){
-		qs.removeById(id);
-		return mostraQuadri(model);
-	}
+//	@PostMapping("/gestisciGalleria")
+//	public String cancellaQuadro(Model model,@RequestParam(value="quadroId") Long id){
+//		qs.removeById(id);
+//		return mostraQuadri(model);
+//	}
 	
 	@PostMapping("/modificaQuadro")
 	public String iniziaModificaQuadro(Model model,@RequestParam(value="quadroId") Long id){

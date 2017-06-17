@@ -1,11 +1,19 @@
 @CHARSET "UTF-8";
 
-#dettagliTitolo{
+#dettagliTitolo,#autenticazione{
 	font-family: "Garamond, serif";
 font-size: 40px;
 font-weight: 300;
 color: white;
 vertical-align: middle;
+}
+
+.alert-error{
+	color: red;
+}
+
+.alert-success{
+	color: green;
 }
 
 #dettagli{

@@ -47,6 +47,7 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a href="/home">Home</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/gestisciGalleria}">Gestisci la galleria</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -73,8 +74,9 @@
 
 					<!-- visualizza galleria,cercaopera -->
 					<li><a class="page-scroll" href="#team">Team</a></li>
-					<li><a class="page-scroll" th:href="@{/login}">Login
+					<li sec:authorize="isAnonymous()"><a class="page-scroll" th:href="@{/login}">Login
 							Amministratore</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 
 				</ul>
 

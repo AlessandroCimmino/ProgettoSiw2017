@@ -44,6 +44,7 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a href="/home">Home</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
 
 			</div>
@@ -88,7 +89,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2 col-md-offset-4">
-						<form th:action="@{/gestisciGalleria}" method="post">
+						<form th:action="@{/cercaOpera}" method="get">
 							<input type="hidden" name="quadroId" th:value="${quadro.id}" />
 							<button type="submit" class="btn btn-primary"
 								name="confermaCancellazioneQuadro" value="Conferma">Conferma</button>
