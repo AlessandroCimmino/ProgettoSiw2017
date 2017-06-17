@@ -23,6 +23,7 @@ public class Quadro {
 	@NotNull
 	@Size(min=1)
 	private String dimensione;
+	@NotNull
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Autore autore;
 	

@@ -1,26 +1,97 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Dati quadro inseriti</title>
+
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
+
+<link href="bootstrap/css/agency.min.css" rel="stylesheet"
+	type="text/css" />
+
+<link href="bootstrap/css/scrolling-nav.css" rel="stylesheet"
+	type="text/css" />
+
 <link href="css/mycss.css" rel="stylesheet" type="text/css" />
-<title>Dati quadro inseriti</title>
+
 </head>
-<body>
-	<h1>Hai inserito questi dati:</h1>
-	<ul>
-		<li><strong>Titolo: </strong><span th:text="${quadro.titolo}"></span></li>
-		<li><strong>Autore: </strong><span th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span></li>
-		<li><strong>Anno di pubblicazione: </strong><span th:text="${quadro.anno}"></span></li>
-		<li><strong>Dimensione: </strong><span th:text="${quadro.dimensione}"></span></li>
-		<li><strong>Tecnica: </strong><span th:text="${quadro.tecnica}"></span></li>
-	</ul>
-	<div><a href="/home">Torna alla home</a></div>
-	
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+	<nav id="mainNav"
+		class="navbar navbar-inverse navbar-custom navbar-fixed-top"
+		role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand page-scroll" href="#page-top">Smart
+					Gallery <!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav navbar-left">
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a href="/home">Home</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden"><a href="#page-top"></a></li>
+
+
+					<li><a th:href="@{/galleria}">Galleria</a></li>
+					<li><form th:href="@{/logout}" method="post">Logout</form></li>
+				</ul>
+
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+	<section id="mostra-dati-inserimento-quadro" class="intro-section">
+
+		<div id="inserimento-successo" class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3" align="center">
+					Congratulazioni!<br /> Hai inserito questi dati:
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12" align="center">
+					
+						<p id="dettagliTitolo"><span class="text-muted">Titolo: </span><span th:text="${quadro.titolo}"></span></p>
+						<p id="dettagli"><span class="text-muted">Autore: </span><span
+							th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span></p>
+						<p id="dettagli"><span class="text-muted">Anno di pubblicazione: </span><span
+							th:text="${quadro.anno}"></span></p>
+						<p id="dettagli"><span class="text-muted">Dimensione: </span><span
+							th:text="${quadro.dimensione}"></span></p>
+						<p id="dettagli"><span class="text-muted">Tecnica: </span><span
+							th:text="${quadro.tecnica}"></span></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

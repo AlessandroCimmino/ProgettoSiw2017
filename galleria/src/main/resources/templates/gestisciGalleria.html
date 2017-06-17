@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gestisci la galleria</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
@@ -30,8 +32,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">GalleriaLogo
-					<!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
+				<a class="navbar-brand page-scroll" href="#page-top">Smart
+					Gallery <!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
 				</a>
 			</div>
 
@@ -43,35 +45,27 @@
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a href="/home">Home</a></li>
 				</ul>
-				
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a th:href="@{/galleria}">Galleria</a></li>
+					<li><a th:href="@{/cercaOpera}">Cerca Opera</a></li>
+					<li><a th:href="@{/inserimentoQuadro}">Inserisci un nuovo
+							quadro</a></li>
+				</ul>
+
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	
+
 	<section id="intro" class="intro-section">
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-		<div>
-			<h1>Lista dei quadri:</h1></div>
-		<div>
-		<ul>
-			<li th:each="quadro : ${quadri}">
-			<strong th:text="${quadro.titolo}"></strong> - <em th:text="${quadro.autore.cognome}"></em>
-			
-			<form th:action="@{/dettagliQuadro}" method="get">
-				<input type="hidden" name="quadroId" th:value="${quadro.id}" />
-				<input type="submit" name="modificaCancella" th:value="#{label.modificaCancella}" />
-			</form>
-			</li>
-		</ul>
-		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12"></div>
 			</div>
 		</div>
-	</div>
 	</section>
 	<script type="text/javascript"
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
