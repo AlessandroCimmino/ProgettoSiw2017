@@ -41,6 +41,9 @@
 				</a>
 			</div>
 
+			<!-- /.container-fluid -->
+		
+
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
@@ -52,21 +55,6 @@
 
 				<ul class="nav navbar-nav navbar-right">
 					<li class="hidden"><a href="#page-top"></a></li>
-					<!-- DROPDOWN
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false" th:text="#{label.galleria}">Galleria
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a th:href="@{/galleria}" th:text="#{label.vaiAllaGalleria}">Vai alla galleria</a></li>
-								<li class="divider"></li>
-								<li><a th:href="@{/gestisciGalleria}" th:text="#{label.gestisciGalleria}">Gestisci la galleria</a></li>
-							</ul>
-						</li>
-						
-						 -->
-
 
 
 					<li><a th:href="@{/galleria}">Galleria</a></li>
@@ -84,45 +72,48 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-4 col-md-offset-4">
 
 					<div class="page-header" align="center">
-						<h1 align="center">Inserisci un nuovo quadro</h1>
+						<h1 align="center" class="section-heading">Inserisci un nuovo quadro</h1>
 					</div>
 
-					<form class="form-inline" th:action="@{/mostraDatiInserimentoQuadro}" method="post"
+					<form class="form" th:action="@{/mostraDatiInserimentoQuadro}" method="post"
 						th:object="${quadro}">
 						<div class="form-group">
-						<ul>
-							<li><label for="inputTitolo">Titolo*: </label>
-									<input id="inputTitolo" class="form-control" type="text" th:field="*{titolo}" />
+    						<label for="inputTitolo">Titolo*:</label>
+  								 <input type="text" class="form-control" id="formGroupExampleInput" th:field="*{titolo}"/>
+  								
 										<span class="text-muted"
 											th:if="${#fields.hasErrors('titolo')}"
 											th:text="#{label.mandatory}">Error
 										</span>
-							</li>
-
-							<li><label for="inputTecnica">Tecnica*: </label>
-									<input id="inputTecnica" class="form-control" type="text" th:field="*{tecnica}" />
+							
+						</div>
+						<div class="form-group">
+							<label for="inputTecnica">Tecnica*: </label>
+									<input type="text" class="form-control" th:field="*{tecnica}"/>
 										<span class="text-muted"
 								th:if="${#fields.hasErrors('tecnica')}"
 								th:text="#{label.mandatory}">Error</span>
-							</li>
-							<li><label for="inputAnno">Anno di pubblicazione*: </label>
-									<input id="inputAnno" class="form-control" type="text"
-								th:field="*{anno}" /> <span class="text-muted"
+						</div>
+						<div class="form-group">
+							<label for="inputAnno">Anno di pubblicazione*: </label>
+									<input type="text" class="form-control" th:field="*{anno}"/>
+									 <span class="text-muted"
 								th:if="${#fields.hasErrors('anno')}"
 								th:text="#{label.annoValido}">Error</span>
-							</li>
-							<li><label for="inputDimensione">Dimensione*: </label>
-									<input id="inputDimensione" class="form-control" type="text" th:field="*{dimensione}"
-								placeholder="hhhhxwwww" /> <span class="text-muted"
+							</div>
+							<div class="form-group">
+							<label for="inputDimensione">Dimensione*: </label>
+									<input type="text" class="form-control" th:field="*{dimensione}" placeholder="hhhhxwwww" /> 
+								<span class="text-muted"
 								th:if="${#fields.hasErrors('dimensione')}"
 								th:text="#{label.mandatory}">Error</span>
-							</li>
+							</div>
 
-
-							<li><label for="inputAutore">Autore*: </label><select id="inputAutore" class="custom-select" th:field="*{autore}">
+							<div class="form-group">
+							<label for="inputAutore">Autore*: </label><select id="inputAutore" class="form-control" th:field="*{autore}">
 									<option th:value="NULL" th:selected="*{autore}==NULL"
 										th:text="#{label.selezionaAutore}"></option>
 									<option th:each="autoreSelezionato : ${autori}"
@@ -130,10 +121,9 @@
 										th:text="${autoreSelezionato.nome}+' '+${autoreSelezionato.cognome}"></option>
 							</select> <span class="text-muted" th:if="${#fields.hasErrors('autore')}"
 								th:text="#{label.mandatory}">Error</span>
-							</li>
-						</ul>
-						<input type="submit" name="Invia" value="Invia" />
-						</div>
+							</div>
+						 <button type="submit" class="btn btn-primary">Inserisci Quadro</button>
+						
 					</form>
 
 				</div>

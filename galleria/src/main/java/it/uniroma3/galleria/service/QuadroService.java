@@ -59,6 +59,6 @@ public class QuadroService {
 		else if(criterio.equals("Tecnica"))
 			return this.cr.findByTecnica(chiave);
 		else
-			return this.cr.findByAnno(chiave);
+			return this.cr.findByAnno(Integer.parseInt(chiave));
 	}
 }

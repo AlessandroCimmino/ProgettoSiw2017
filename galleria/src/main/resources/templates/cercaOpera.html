@@ -6,34 +6,124 @@
 <title>Cerca opera</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
+	<link href="bootstrap/css/agency.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="bootstrap/css/scrolling-nav.css" rel="stylesheet"
+	type="text/css" />
+
+  
 <link href="css/mycss.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-	<form th:action="@{/cercaOpera}" method="post">
-		<div>Cerca opera per: 
-			<select name="criterioDiRicerca">
-				<option selected="selected">Titolo</option>
-				<option>Autore</option>
-				<option>Anno</option>
-				<option>Dimensione</option>
-				<option>Tecnica</option>
-			</select>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+	<nav id="mainNav"
+		class="navbar navbar-inverse navbar-custom navbar-fixed-top"
+		role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand page-scroll" href="#page-top">Smart Gallery
+					<!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav navbar-left">
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a href="/home">Home</a></li>
+				</ul>
+				
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="page-scroll" href="#intro">Cerca per categoria</a></li>
+					<li><a class="page-scroll" href="#service">Sfoglia le immagini</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 		</div>
-		<div>
-			<input type="text" name="chiaveDiRicerca" placeholder="Inserisci la chiave di ricerca" />
-			<input type="submit" name="cerca" value="Cerca"/>
+		<!-- /.container-fluid -->
+	</nav>
+	
+	<section id="intro" class="intro-section">
+		<div class="container">
+			<div class="row">
+					<div class="col-md-4 col-md-offset-4" id="galleria" align="center">
+						<form th:action="@{/cercaOpera}" method="post">
+								<div class="form-group">
+   									 <label for="exampleSelect1">Scegli il tipo di ricerca: </label>
+    									<select name="criterioDiRicerca" class="form-control" id="exampleSelect1">
+											<option selected="selected">Titolo</option>
+											<option>Autore</option>
+											<option>Anno</option>
+											<option>Dimensione</option>
+											<option>Tecnica</option>
+									</select>
+								</div>
+							<div>
+								<label for="formGroupExampleInput">Inserisci la chiave di ricerca: </label>
+  									  <input type="text" class="form-control" id="formGroupExampleInput" name="chiaveDiRicerca" placeholder="Chiave di ricerca..."/>
+								 <button type="submit" class="btn btn-primary">Cerca</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</section>
+	
+	<section  id="service" class="services-section">
+	<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3" align="center">
+					<h2 class="section-heading" id="listaOpere">Opere nella Galleria: </h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+
+				<!--<h1>Lista opere:</h1>
+				<ol>
+					<li th:each="quadro : ${quadri}">
+						<a th:href="@{/dettagliQuadro(quadroId=${quadro.id})}" th:text="${quadro.titolo}"></a> - 
+						<span th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span>
+					</li>
+				</ol>-->
+				
+				<!-- Lista delle opere -->
+				 <div th:each="quadro: ${quadri}" class="col-lg-3 col-md-4 col-xs-6 thumb">
+				 	<div class="opera">
+  						<a class="thumbnail" th:href="@{/dettagliQuadro(quadroId=${quadro.id})}">
+                   			 <img class="img-responsive image" src="img/abstract-bg.jpg" alt=""/>
+              
+  						<div class="middle">
+  							  <div class="descrizioneOpera" th:text="${quadro.titolo} + ' - ' + ${quadro.autore.cognome}" ></div>
+
+ 						 </div>
+ 						 </a>
+						</div>
+               		 
+               		 
+            </div>
+			</div>
+			</div>
 		</div>
-	</form>
-	<h1>Lista opere:</h1>
-	<ol>
-		<li th:each="quadro : ${quadri}">
-			<a th:href="@{/dettagliQuadro(quadroId=${quadro.id})}" th:text="${quadro.titolo}"></a> - 
-			<span th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span>
-		</li>
-	</ol>
+	</section>
+	
 	
 	<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/scrolling-nav.js"></script>
+	
+	<script type="text/javascript" src="bootstrap/js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/agency.min.js"></script>
 </body>
 </html>
