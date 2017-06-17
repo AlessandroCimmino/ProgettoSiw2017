@@ -12,7 +12,9 @@ L’utente generico può accedere alle informazioni della galleria attraverso di
 navigazione, opportunamente predisposti (ad esempio, per autore, oppure per anno, etc.).
 
 CASI D'USO:
+
 ------------CASO D'USO UC1-----------
+
 INSERIMENTO OPERA D'ARTE
   1.  L'amministratore vuole inserire i dati relativi ad un'opera d'arte presente nella galleria
   2.  L'amministratore inserisce titolo, anno di pubblicazione, tecnica e dimensioni e sceglie l'autore
@@ -23,6 +25,7 @@ Estensioni
   1-2a. L'amministratore annulla l'operazione
 
 ------------CASO D'USO UC2-----------
+
 RIMOZIONE OPERA D'ARTE
   1.  L'amministratore vuole rimuovere un'opera d'arte dal sistema
   2.  L'amministratore visualizza le opere d'arte
@@ -37,6 +40,7 @@ Estensioni
     1.  Il sistema mostra l'elenco delle opere d'arte in corrispondenza con il parametro inserito
 
 ------------CASO D'USO UC3-----------
+
 MODIFICA DATI OPERA D'ARTE
   1.  L'amministratore vuole modificare i dati di un'opera d'arte
   2.  L'amministratore seleziona l'opera da modificare
@@ -49,6 +53,7 @@ Estensioni
   1-4a  L'amministratore annulla l'operazione
 
 ------------CASO D'USO UC4-----------
+
 VISUALIZZAZIONE OPERE D'ARTE
 L'utente può visualizzare le opere d'arte della galleria in vari modi.
 Può visualizzare l'elenco di tutte le opere d'arte, cercare un'opera in base al titolo
