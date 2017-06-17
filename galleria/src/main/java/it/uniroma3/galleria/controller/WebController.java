@@ -24,14 +24,19 @@ public class WebController {
     }
     
     // Login form with error
-    @RequestMapping("/login-error.html")
+    @RequestMapping("/login-error")
     public String loginError(Model model) {
       model.addAttribute("loginError", true);
-      return "login.html";
+      return "login";
     }
    
     @RequestMapping(value="/403")
     public String Error403(){
         return "403";
+    }
+    
+    @RequestMapping(value="/logout")
+    public String logout(){
+    	return "logout";
     }
 }

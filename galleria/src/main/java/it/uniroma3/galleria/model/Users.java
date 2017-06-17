@@ -12,18 +12,34 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String nome;
-	private String cognome;
 	@NotNull
 	@Size(min=1)
+	@Column (unique=true)
 	private String username;
 	@NotNull
 	@Size(min=1)
 	private String password;
 	private boolean enabled;
+	@OneToOne
+	private Authorities auth;
 	
 	public Users(){
 		
+	}
+	
+	public Users(String username,String password,Authorities auth){
+		this.username=username;
+		this.password=password;
+		this.enabled=true;
+		this.auth=auth;
+	}
+	
+	public Authorities getAuth() {
+		return auth;
+	}
+	
+	public void setAuth(Authorities auth) {
+		this.auth = auth;
 	}
 	
 	public boolean getEnabled() {
@@ -38,18 +54,6 @@ public class Users {
 		return id;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getCognome() {
-		return cognome;
-	}
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
-	}
 	public String getUsername() {
 		return username;
 	}
