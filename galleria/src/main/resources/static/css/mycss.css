@@ -41,7 +41,9 @@ vertical-align: middle;
 	margin-bottom: 90px;
 }
 
-
+#about{
+	padding-top: 100px;
+}
 
 #about * {
 	color: #c3c3c3;

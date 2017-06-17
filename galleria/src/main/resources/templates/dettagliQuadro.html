@@ -66,6 +66,20 @@
    			<div class="row ">
       			<div class="col-sm-7">
        			   <img src="img/abstract-bg.jpg" class="img-responsive"/>
+       			   		<div class="row">
+       			   			<div class="col-md-2 col-md-offset-4 modificaCancella">
+								<form th:action="@{/modificaQuadro}" method="post">
+									<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
+									<button type="submit" class="btn btn-primary">Modifica</button>
+								</form>
+							</div>
+							<div class="col-md-2 modificaCancella">
+								<form th:action="@{/confermaCancellazioneQuadro}" method="post">
+									<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
+									<button type="submit" class="btn btn-primary">Cancella</button>
+								</form>
+							</div>
+       			   		</div>
         </div>
         <div class="col-sm-4 ">
         	<p id="dettagliTitolo" th:text="${quadro.titolo}"></p>
@@ -76,7 +90,8 @@
         </div>
     </div>
     </div>
-              
+     
+     <!--          
 	<div class="container">
 			<div class="row">
 				<div class="col-md-1 modificaCancella">
@@ -92,7 +107,8 @@
 					</form>
 				</div>
 			</div>
-	</div>
+	</div> -->
+	
 	</section>
 	<script type="text/javascript"
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
