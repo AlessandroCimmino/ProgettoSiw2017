@@ -13,10 +13,10 @@
 	type="text/css" />
 <link href="bootstrap/css/scrolling-nav.css" rel="stylesheet"
 	type="text/css" />
-
 <link href="css/mycss.css" rel="stylesheet" type="text/css" />
 
 </head>
+
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -33,8 +33,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand page-scroll" href="#page-top">Smart
-					Gallery <!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
-				</a>
+					Gallery</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,6 +43,10 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a href="/home">Home</a></li>
+				</ul>
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden"><a href="#page-top"></a></li>
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
 
@@ -57,8 +60,8 @@
 
 		<div id="conferma-cancellazione" class="container">
 			<div class="row">
-				<div class="col-md-12" align="center">Sei sicuro di voler
-					rimuovere questo quadro?</div>
+				<div th:text="#{label.seiSicuro}" class="col-md-12" align="center">Sei
+					sicuro di voler rimuovere questo quadro?</div>
 			</div>
 		</div>
 
@@ -92,13 +95,15 @@
 						<form th:action="@{/cercaOpera}" method="get">
 							<input type="hidden" name="quadroId" th:value="${quadro.id}" />
 							<button type="submit" class="btn btn-primary"
-								name="confermaCancellazioneQuadro" value="Conferma">Conferma</button>
+								name="confermaCancellazioneQuadro" th:text="#{label.conferma}"
+								value="Conferma">Conferma</button>
 						</form>
 					</div>
 					<div class="col-md-2">
 						<form th:action="@{/dettagliQuadro}" method="get">
 							<input type="hidden" name="quadroId" th:value="${quadro.id}" />
-							<button type="submit" class="btn btn-primary" name="annullaCancellazioneQuadro"
+							<button type="submit" class="btn btn-primary"
+								name="annullaCancellazioneQuadro" th:text="#{label.annulla}"
 								value="Annulla">Annulla</button>
 						</form>
 					</div>

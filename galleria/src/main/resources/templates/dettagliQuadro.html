@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dettagli quadro</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
-	<link href="bootstrap/css/agency.min.css" rel="stylesheet"
+<link href="bootstrap/css/agency.min.css" rel="stylesheet"
 	type="text/css" />
 <link href="bootstrap/css/scrolling-nav.css" rel="stylesheet"
 	type="text/css" />
-	
 <link href="css/mycss.css" rel="stylesheet" type="text/css" />
-	
-
 </head>
+
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 	<nav id="mainNav"
@@ -30,9 +31,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">Smart Gallery
-					<!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
-				</a>
+				<a class="navbar-brand page-scroll" href="#page-top">Smart
+					Gallery</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,12 +42,15 @@
 				<ul class="nav navbar-nav navbar-left">
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a href="/home">Home</a></li>
-					<li sec:authorize="isAuthenticated()"><a th:href="@{/gestisciGalleria}">Gestisci la galleria</a></li>
+					<li sec:authorize="isAuthenticated()"><a
+						th:text="#{label.gestisciGalleria}" th:href="@{/gestisciGalleria}">Gestisci
+							la galleria</a></li>
 				</ul>
-				
-				
+
+
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="page-scroll" th:href="@{/cercaOpera}">Torna alla ricerca</a></li>
+					<li><a class="page-scroll" th:text="#{label.tornaAllaRicerca}"
+						th:href="@{/cercaOpera}">Torna alla ricerca</a></li>
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
 			</div>
@@ -55,68 +58,57 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<!-- IMMAGINE -->
+
 	<section id="intro" class="intro-section">
-		
+
 		<div class="container">
 			<div class="row">
-					<div class="col-md-6 col-md-offset-3" id="galleria" align="center">Dettagli quadro</div>
+				<div class="col-md-6 col-md-offset-3" id="galleria"
+					th:text="#{label.dettagliQuadro}" align="center">Dettagli
+					quadro</div>
 			</div>
 		</div>
-		
+
 		<div class="dettagli container-fluid picture">
-   			<div class="row ">
-      			<div class="col-sm-7">
-       			   <img src="img/abstract-bg.jpg" class="img-responsive"/>
-       			   		<div class="row">
-       			   			<div sec:authorize="isAuthenticated()" class="col-md-2 col-md-offset-4 modificaCancella">
-								<form th:action="@{/modificaQuadro}" method="post">
-									<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
-									<button type="submit" class="btn btn-primary">Modifica</button>
-								</form>
-							</div>
-							<div sec:authorize="isAuthenticated()" class="col-md-2 modificaCancella">
-								<form th:action="@{/confermaCancellazioneQuadro}" method="post">
-									<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
-									<button type="submit" class="btn btn-primary">Cancella</button>
-								</form>
-							</div>
-       			   		</div>
-        </div>
-        <div class="col-sm-4 ">
-        	<p id="dettagliTitolo" th:text="${quadro.titolo}"></p>
-      		<p id="dettagli" th:text="${quadro.autore.nome} + '  ' + ${quadro.autore.cognome}"></p>
-       	 	<p id="dettagli" th:text="${quadro.anno}"></p>
-      	  	<p id="dettagli" th:text="${quadro.dimensione}"></p>
-       	 	<p id="dettagli" th:text="${quadro.tecnica}"></p>
-        </div>
-    </div>
-    </div>
-     
-     <!--          
-	<div class="container">
-			<div class="row">
-				<div class="col-md-1 modificaCancella">
-					<form th:action="@{/modificaQuadro}" method="post">
-						<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
-						<button type="submit" class="btn btn-primary">Modifica</button>
-					</form>
+			<div class="row ">
+				<div class="col-sm-7">
+					<img src="img/abstract-bg.jpg" class="img-responsive" />
+					<div class="row">
+						<div sec:authorize="isAuthenticated()"
+							class="col-md-2 col-md-offset-4 modificaCancella">
+							<form th:action="@{/modificaQuadro}" method="post">
+								<input type="hidden" name="quadroId" th:value="${quadro.id}" />
+								<button type="submit" th:text="#{label.modifica}"
+									class="btn btn-primary">Modifica</button>
+							</form>
+						</div>
+						<div sec:authorize="isAuthenticated()"
+							class="col-md-2 modificaCancella">
+							<form th:action="@{/confermaCancellazioneQuadro}" method="post">
+								<input type="hidden" name="quadroId" th:value="${quadro.id}" />
+								<button type="submit" th:text="#{label.rimuovi}"
+									class="btn btn-primary">Rimuovi</button>
+							</form>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-3 modificaCancella">
-					<form th:action="@{/confermaCancellazioneQuadro}" method="post">
-						<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
-						<button type="submit" class="btn btn-primary">Cancella</button>
-					</form>
+				<div class="col-sm-4 ">
+					<p id="dettagliTitolo" th:text="${quadro.titolo}"></p>
+					<p id="dettagli"
+						th:text="${quadro.autore.nome} + '  ' + ${quadro.autore.cognome}"></p>
+					<p id="dettagli" th:text="${quadro.anno}"></p>
+					<p id="dettagli" th:text="${quadro.dimensione}"></p>
+					<p id="dettagli" th:text="${quadro.tecnica}"></p>
 				</div>
 			</div>
-	</div> -->
-	
+		</div>
+
 	</section>
 	<script type="text/javascript"
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/scrolling-nav.js"></script>
-	
+
 	<script type="text/javascript" src="bootstrap/js/jquery.easing.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/agency.min.js"></script>
 </body>

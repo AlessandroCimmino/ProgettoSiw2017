@@ -13,12 +13,12 @@
 	type="text/css" />
 <link href="bootstrap/css/scrolling-nav.css" rel="stylesheet"
 	type="text/css" />
-<link href="bootstrap/css/creative.min.css" rel="stylesheet"/>
-  
-    
+<link href="bootstrap/css/creative.min.css" rel="stylesheet" />
 <link href="css/mycss.css" rel="stylesheet" type="text/css" />
 
 </head>
+
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 	<nav id="mainNav"
@@ -33,9 +33,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">Smart Gallery
-					<!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
-				</a>
+				<a class="navbar-brand page-scroll" href="#page-top">Smart
+					Gallery</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,11 +45,12 @@
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a href="/home">Home</a></li>
 				</ul>
-				
-				
+
 				<ul class="nav navbar-nav navbar-right">
-					<li><a class="page-scroll" href="#intro">Carosello</a></li>
-					<li><a class="page-scroll" th:href="@{/cercaOpera}">Cerca Opera</a></li>
+					<li><a class="page-scroll" th:text="#{label.carosello}"
+						href="#intro">Carosello</a></li>
+					<li><a class="page-scroll" th:href="@{/cercaOpera}">Cerca
+							Opera</a></li>
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
 			</div>
@@ -58,19 +58,20 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-				
+
 	<section id="intro" class="intro-section">
-		
+
 		<div class="container">
 			<div class="row">
-					<div class="col-md-6 col-md-offset-3" id="galleria" align="center">Dai uno sguardo alla galleria...</div>
+				<div class="col-md-6 col-md-offset-3"
+					th:text="#{label.daiUnoSguardo}" id="galleria" align="center">Dai
+					uno sguardo alla galleria...</div>
 			</div>
 		</div>
-		
+
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-
 
 					<!-- Inizio carousel -->
 
@@ -88,19 +89,19 @@
 							<div class="item active">
 								<img
 									src="http://restaurars.altervista.org/wp-content/uploads/2015/04/Tiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg"
-									alt="Guernica_Picasso"></img>
+									alt="Venere_di_Urbino"></img>
 								<div class="carousel-caption"></div>
 							</div>
 							<div class="item">
 								<img
 									src="http://cultura.biografieonline.it/wp-content/uploads/2012/10/notte-stellata-sul-rodano-van-gogh.jpg"
-									alt="Notte Stellata"></img>
+									alt="Notte_Stellata"></img>
 								<div class="carousel-caption"></div>
 							</div>
 							<div class="item">
 								<img
 									src="http://restaurars.altervista.org/wp-content/uploads/2015/04/Botticelli-primavera.jpg"
-									alt="la primavera"></img>
+									alt="la_primavera"></img>
 								<div class="carousel-caption"></div>
 							</div>
 							<div class="item">
@@ -125,15 +126,15 @@
 			</div>
 		</div>
 	</section>
-		
+
 
 	<script type="text/javascript"
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/scrolling-nav.js"></script>
-	
+
 	<script type="text/javascript" src="bootstrap/js/jquery.easing.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/agency.min.js"></script>
-	
+
 </body>
 </html>
