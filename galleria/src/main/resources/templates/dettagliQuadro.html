@@ -7,74 +7,99 @@
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
-<link href="css/mycss.css" rel="stylesheet" type="text/css" />
+	<link href="bootstrap/css/agency.min.css" rel="stylesheet"
+	type="text/css" />
 <link href="bootstrap/css/scrolling-nav.css" rel="stylesheet"
 	type="text/css" />
+	
+<link href="css/mycss.css" rel="stylesheet" type="text/css" />
+	
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand page-scroll" href="#page-top">
-						<img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img>
-					</a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-ex1-collapse" >
-					<ul class="nav navbar-nav">
-						<li class="hidden">
-							<a class="page-scroll" href="#page-top"></a>
-                    	</li>
-						<li>
-							<a href="/home">Home</a>
-						</li>
-					</ul>
-
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Logout</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
+	<nav id="mainNav"
+		class="navbar navbar-inverse navbar-custom navbar-fixed-top"
+		role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand page-scroll" href="#page-top">Smart Gallery
+					<!-- <img src="https://upload.wikimedia.org/wikipedia/it/c/c8/Logo_Roma_Tre.jpg" alt="brand"></img> -->
+				</a>
 			</div>
-			<!-- /.container-fluid -->
-		</nav>
-	
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav navbar-left">
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a href="/home">Home</a></li>
+				</ul>
+				
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="page-scroll" th:href="@{/cercaOpera}">Torna alla ricerca</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
 	<!-- IMMAGINE -->
-	<section class="about-section">
-	<div>
-		<strong th:text="#{label.titolo}"></strong><span th:text="${quadro.titolo}"></span><br />
-		<strong th:text="#{label.autore}"></strong><span th:text="${quadro.autore.nome}+' '+${quadro.autore.cognome}"></span><br />
-		<strong th:text="#{label.anno}"></strong><span th:text="${quadro.anno}"></span><br />
-		<strong th:text="#{label.tecnica}"></strong><span th:text="${quadro.tecnica}"></span><br />
-		<strong th:text="#{label.dimensione}"></strong><span th:text="${quadro.dimensione}"></span><br />
-	</div>
-	<div>
-		<form th:action="@{/modificaQuadro}" method="post">
-			<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
-			<input type="submit" name="modificaQuadro" value="Modifica"/>
-		</form>
-		<br />
-		<form th:action="@{/confermaCancellazioneQuadro}" method="post">
-			<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
-			<input type="submit" name="cancellaQuadro" value="Cancella"/>
-		</form>
+	<section id="intro" class="intro-section">
+		
+		<div class="container">
+			<div class="row">
+					<div class="col-md-6 col-md-offset-3" id="galleria" align="center">Dettagli quadro</div>
+			</div>
+		</div>
+		
+		<div class="dettagli container-fluid picture">
+   			<div class="row ">
+      			<div class="col-sm-7">
+       			   <img src="img/abstract-bg.jpg" class="img-responsive"/>
+        </div>
+        <div class="col-sm-4 ">
+        	<p id="dettagliTitolo" th:text="${quadro.titolo}"></p>
+      		<p id="dettagli" th:text="${quadro.autore.nome} + '  ' + ${quadro.autore.cognome}"></p>
+       	 	<p id="dettagli" th:text="${quadro.anno}"></p>
+      	  	<p id="dettagli" th:text="${quadro.dimensione}"></p>
+       	 	<p id="dettagli" th:text="${quadro.tecnica}"></p>
+        </div>
+    </div>
+    </div>
+              
+	<div class="container">
+			<div class="row">
+				<div class="col-md-1 modificaCancella">
+					<form th:action="@{/modificaQuadro}" method="post">
+						<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
+						<button type="submit" class="btn btn-primary">Modifica</button>
+					</form>
+				</div>
+				<div class="col-md-3 modificaCancella">
+					<form th:action="@{/confermaCancellazioneQuadro}" method="post">
+						<input type="hidden" name="quadroId" th:value="${quadro.id}"/>
+						<button type="submit" class="btn btn-primary">Cancella</button>
+					</form>
+				</div>
+			</div>
 	</div>
 	</section>
-	
 	<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/scrolling-nav.js"></script>
+	
 	<script type="text/javascript" src="bootstrap/js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/agency.min.js"></script>
 </body>
 </html>

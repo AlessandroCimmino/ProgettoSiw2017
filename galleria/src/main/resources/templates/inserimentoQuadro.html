@@ -75,17 +75,21 @@
 
 		<div class="container">
 			<div class="row">
+				<div class="col-md-6 col-md-offset-3" id="galleria" align="center">Inserisci un nuovo quadro:</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
 
-					<div class="page-header" align="center">
-						<h1 align="center" class="section-heading">Inserisci un nuovo quadro</h1>
-					</div>
+					
 
 					<form class="form" th:action="@{/mostraDatiInserimentoQuadro}" method="post"
 						th:object="${quadro}">
 						<div class="form-group">
-    						<label for="inputTitolo">Titolo*:</label>
-  								 <input type="text" class="form-control" id="formGroupExampleInput" th:field="*{titolo}"/>
+    						<label for="inputTitolo" id="label-form">Titolo*:</label>
+  								 <input type="text" class="form-control" id="textArea" th:field="*{titolo}"/>
   								
 										<span class="text-muted"
 											th:if="${#fields.hasErrors('titolo')}"
@@ -94,29 +98,29 @@
 							
 						</div>
 						<div class="form-group">
-							<label for="inputTecnica">Tecnica*: </label>
-									<input type="text" class="form-control" th:field="*{tecnica}"/>
+							<label for="inputTecnica" id="label-form">Tecnica*: </label>
+									<input type="text" class="form-control"  id="textArea" th:field="*{tecnica}"/>
 										<span class="text-muted"
 								th:if="${#fields.hasErrors('tecnica')}"
 								th:text="#{label.mandatory}">Error</span>
 						</div>
 						<div class="form-group">
-							<label for="inputAnno">Anno di pubblicazione*: </label>
-									<input type="text" class="form-control" th:field="*{anno}"/>
+							<label for="inputAnno" id="label-form">Anno di pubblicazione*: </label>
+									<input type="text" class="form-control" id="textArea" th:field="*{anno}"/>
 									 <span class="text-muted"
 								th:if="${#fields.hasErrors('anno')}"
 								th:text="#{label.annoValido}">Error</span>
 							</div>
 							<div class="form-group">
-							<label for="inputDimensione">Dimensione*: </label>
-									<input type="text" class="form-control" th:field="*{dimensione}" placeholder="hhhhxwwww" /> 
+							<label for="inputDimensione" id="label-form">Dimensione*: </label>
+									<input type="text" class="form-control" id="textArea" th:field="*{dimensione}" placeholder="hhhhxwwww" /> 
 								<span class="text-muted"
 								th:if="${#fields.hasErrors('dimensione')}"
 								th:text="#{label.mandatory}">Error</span>
 							</div>
 
 							<div class="form-group">
-							<label for="inputAutore">Autore*: </label><select id="inputAutore" class="form-control" th:field="*{autore}">
+							<label for="inputAutore" id="label-form">Autore*: </label><select id="textArea" class="form-control" th:field="*{autore}">
 									<option th:value="NULL" th:selected="*{autore}==NULL"
 										th:text="#{label.selezionaAutore}"></option>
 									<option th:each="autoreSelezionato : ${autori}"
@@ -141,7 +145,7 @@
 
 
 
-	<h1>Form Validation States</h1>
+	<!--  <h1>Form Validation States</h1>
 	<form role="form">
 		<div class="form-group has-success">
 			<label class="control-label" for="inputSuccess">Input with
@@ -155,7 +159,7 @@
 			<label class="control-label" for="inputError">Input with
 				error</label> <input type="text" class="form-control" id="inputError" />
 		</div>
-	</form>
+	</form>-->
 
 	<script type="text/javascript"
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

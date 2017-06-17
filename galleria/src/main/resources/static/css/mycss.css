@@ -1,15 +1,47 @@
 @CHARSET "UTF-8";
 
+#dettagliTitolo{
+	font-family: "Garamond, serif";
+font-size: 40px;
+font-weight: 300;
+color: white;
+vertical-align: middle;
+}
 
+#dettagli{
+	font-family: "Garamond, serif";
+	padding-top: 45px;
+    font-size: 20px;
+    color: #bbb6b1;
+	
+}
 
+#label-form{
+	font-family: "Garamond, serif";
+	color: #bbb6b1;
+}
+
+#textArea{
+	font-family: "Garamond, serif";
+}
+
+.confermaModifica{
+	margin-right: 20px;
+}
+
+.modificaCancella{
+	padding: 20px;
+}
+
+.dettagli{
+	padding: 60px;
+	padding-bottom: initial;
+}
 #titolo-portfolio{
 	margin-bottom: 90px;
 }
 
-#inserisci-quadro * {
-	color: #c3c3c3;
-	font-color: #c3c3c3;
-}
+
 
 #about * {
 	color: #c3c3c3;
