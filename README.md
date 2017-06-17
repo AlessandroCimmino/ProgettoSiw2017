@@ -55,6 +55,7 @@ Estensioni
 ------------CASO D'USO UC4-----------
 
 VISUALIZZAZIONE OPERE D'ARTE
+
 L'utente può visualizzare le opere d'arte della galleria in vari modi.
 Può visualizzare l'elenco di tutte le opere d'arte, cercare un'opera in base al titolo
 all'autore, all'anno di pubblicazione, alle dimensioni o alla tecnica.
