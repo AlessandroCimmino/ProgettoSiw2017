@@ -1,9 +1,14 @@
 package it.uniroma3.galleria.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import it.uniroma3.galleria.model.Quadro;
 import it.uniroma3.galleria.service.AutoreService;
 import it.uniroma3.galleria.service.QuadroService;
 
@@ -50,14 +55,27 @@ public class ControllerGestioneGalleria {
 		return "modificaQuadro";
 	}
 
+//	@PostMapping("/dettagliQuadro")
+//	public String modificaAnnulla(Model model,@RequestParam(required=false,value="modificaQuadro") String modifica,
+//								@RequestParam(value="titolo") String titolo,@RequestParam(value="anno") Integer anno,
+//								@RequestParam(value="tecnica") String tecnica,@RequestParam(value="dimensione") String dimensione,
+//								@RequestParam(value="autoreId") Long autoreId,@RequestParam(value="quadroId") Long quadroId){
+//		if(modifica!=null){
+//			qs.aggiorna(titolo,anno,tecnica,dimensione,as.findById(autoreId),qs.findById(quadroId));
+//		}
+//		return mostraDettagliQuadro(model, quadroId);
+//	}
+	
 	@PostMapping("/dettagliQuadro")
-	public String modificaAnnulla(Model model,@RequestParam(required=false,value="modificaQuadro") String modifica,
-								@RequestParam(value="titolo") String titolo,@RequestParam(value="anno") Integer anno,
-								@RequestParam(value="tecnica") String tecnica,@RequestParam(value="dimensione") String dimensione,
-								@RequestParam(value="autoreId") Long autoreId,@RequestParam(value="quadroId") Long quadroId){
+	public String modificaAnnulla(@Valid @ModelAttribute Quadro quadro,
+			BindingResult bindingResult, Model model, @RequestParam(required=false,value="modificaQuadro") String modifica,
+			@RequestParam(value="quadroVecchioId") Long quadroVecchioId){
+		if (bindingResult.hasErrors()) {
+            return iniziaModificaQuadro(model, quadroVecchioId);
+        }
 		if(modifica!=null){
-			qs.aggiorna(titolo,anno,tecnica,dimensione,as.findById(autoreId),qs.findById(quadroId));
+			qs.aggiorna(quadro, quadroVecchioId);
 		}
-		return mostraDettagliQuadro(model, quadroId);
+		return mostraDettagliQuadro(model, quadroVecchioId);
 	}
 }

@@ -72,7 +72,8 @@
 		<div class="dettagli container-fluid picture">
 			<div class="row ">
 				<div class="col-sm-7">
-					<img src="img/abstract-bg.jpg" class="img-responsive" />
+					<img th:src="${(quadro.image != null and !#strings.isEmpty(quadro.image)) ? quadro.image : '/img/abstract-bg.jpg'}"
+						th:alt="${quadro.titolo}" class="img-responsive" />
 					<div class="row">
 						<div sec:authorize="isAuthenticated()"
 							class="col-md-2 col-md-offset-4 modificaCancella">

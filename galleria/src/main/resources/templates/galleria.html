@@ -77,46 +77,38 @@
 
 					<div id="slideshow" class="carousel slide carousel-fade">
 
-						<!-- Indicatori di posizione -->
+						<!-- Indicatori di posizione 
 						<ol class="carousel-indicators">
 							<li data-target="#slideshow" data-slide-to="0" class="active"></li>
 							<li data-target="#slideshow" data-slide-to="1"></li>
 							<li data-target="#slideshow" data-slide-to="2"></li>
 							<li data-target="#slideshow" data-slide-to="3"></li>
-						</ol>
+						</ol>-->
 
 						<div class="carousel-inner">
 							<div class="item active">
-								<img
-									src="http://restaurars.altervista.org/wp-content/uploads/2015/04/Tiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg"
-									alt="Venere_di_Urbino"></img>
-								<div class="carousel-caption"></div>
+								<img src="/img/abstract-bg.jpg" alt="default"></img>
+								<div class="carousel-caption">Sfoglia la galleria!</div>
 							</div>
-							<div class="item">
+							<div th:each="quadro : ${quadri}" class="item">
 								<img
-									src="http://cultura.biografieonline.it/wp-content/uploads/2012/10/notte-stellata-sul-rodano-van-gogh.jpg"
-									alt="Notte_Stellata"></img>
-								<div class="carousel-caption"></div>
-							</div>
-							<div class="item">
-								<img
-									src="http://restaurars.altervista.org/wp-content/uploads/2015/04/Botticelli-primavera.jpg"
-									alt="la_primavera"></img>
-								<div class="carousel-caption"></div>
-							</div>
-							<div class="item">
-								<img
-									src="http://www.icviagentile40.gov.it/wordpress/wp-content/uploads/2014/04/guernica.jpg"
-									alt="guernica"></img>
-								<div class="carousel-caption"></div>
+									th:src="${(quadro.image != null and !#strings.isEmpty(quadro.image)) ? quadro.image : '/img/abstract-bg.jpg'}"
+									th:alt="${quadro.titolo}" />
+								<div class="carousel-caption">
+									<span th:text="${quadro.titolo}"></span>
+								</div>
 							</div>
 						</div>
 
 						<!-- Controlli -->
 						<a class="left carousel-control" href="#slideshow"
-							data-slide="prev"> <span class="icon-prev"></span>
+							data-slide="prev"> <span
+							class="glyphicon glyphicon-chevron-left"></span> <span
+							class="sr-only">Previous</span>
 						</a> <a class="right carousel-control" href="#slideshow"
-							data-slide="next"> <span class="icon-next"></span>
+							data-slide="next"> <span
+							class="glyphicon glyphicon-chevron-right"></span> <span
+							class="sr-only">Next</span>
 						</a>
 					</div>
 

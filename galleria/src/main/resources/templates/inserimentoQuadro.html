@@ -127,6 +127,12 @@
 							</select> <span class="text-muted" th:if="${#fields.hasErrors('autore')}"
 								th:text="#{label.mandatory}">Error</span>
 							</div>
+							
+							<div class="form-group">
+							<label for="urlImmagine" id="label-form">Scegli un'immagine</label>
+     							<input class="form-control" id="textArea" th:field="*{image}" name="urlImage" placeholder="Inserisci l'url dell'immagine..." />
+    						</div>
+							
 						 <button type="submit" class="btn btn-primary">Inserisci Quadro</button>
 						
 					</form>

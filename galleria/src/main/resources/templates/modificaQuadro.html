@@ -47,7 +47,6 @@
 				
 				<ul class="nav navbar-nav navbar-right">
 					<li><a class="page-scroll" th:href="@{/inserimentoQuadro}">Inserisci un nuovo quadro</a></li>
-					<li><a class="page-scroll" th:href="@{/dettagliQuadro?quadroId=${quadro.id}}">Torna ai dettagli</a></li>
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
 			</div>
@@ -67,37 +66,51 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
-		<form class="form" th:action="@{/dettagliQuadro}" method="post">
+		<form class="form" th:action="@{/dettagliQuadro}" method="post" th:object="${quadro}">
 						<div class="form-group">
     						<label for="inputTitolo" id="label-form">Titolo*:</label>
-  								 <input type="text" name="titolo" class="form-control" id="formGroupExampleInput" th:value="${quadro.titolo}"/>
-  								
-										
-							
+  								<input type="text" name="titolo" class="form-control" id="formGroupExampleInput" th:field="*{titolo}"/>
+  								<span class="text-muted"
+									th:if="${#fields.hasErrors('titolo')}"
+									th:text="#{label.mandatory}">Error
+								</span>
 						</div>
 						<div class="form-group">
 							<label for="inputTecnica" id="label-form">Tecnica*: </label>
-									<input type="text" name="tecnica" id="textArea" class="form-control" th:value="${quadro.tecnica}"/>
-								
+									<input type="text" name="tecnica" id="textArea" class="form-control" th:field="*{tecnica}"/>
+									<span class="text-muted"
+								th:if="${#fields.hasErrors('tecnica')}"
+								th:text="#{label.mandatory}">Error</span>
 						</div>
 						<div class="form-group">
 							<label for="inputAnno" id="label-form">Anno di pubblicazione*: </label>
-									<input type="text" name="anno" id="textArea"  class="form-control" th:value="${quadro.anno}"/>
-									
+									<input type="text" name="anno" id="textArea"  class="form-control" th:field="*{anno}"/>
+									<span class="text-muted"
+								th:if="${#fields.hasErrors('anno')}"
+								th:text="#{label.annoValido}">Error</span>
 							</div>
 							<div class="form-group">
 							<label for="inputDimensione" id="label-form">Dimensione*: </label>
-									<input type="text" name="dimensione" id="textArea"  class="form-control" th:value="${quadro.dimensione}" placeholder="hhhhxwwww" /> 
-							
+									<input type="text" name="dimensione" id="textArea"  class="form-control" th:field="*{dimensione}" placeholder="hhhhxwwww" /> 
+									<span class="text-muted"
+								th:if="${#fields.hasErrors('dimensione')}"
+								th:text="#{label.mandatory}">Error</span>
 							</div>
 
 							<div class="form-group">
-							<label for="inputAutore" id="label-form">Autore*: </label><select name="autoreId" id="textArea" class="form-control" th:value="${quadro.autore}">
+							<label for="inputAutore" id="label-form">Autore*: </label><select name="autoreId" id="textArea" class="form-control" th:field="*{autore}">
 									<option th:each="autore : ${autori}"  th:selected="${autore.id==quadro.autore.id}" 
 									th:value="${autore.id}" th:text="${autore.nome}+' '+${autore.cognome}"></option>
-							</select> 
+							</select><span class="text-muted" th:if="${#fields.hasErrors('autore')}"
+								th:text="#{label.mandatory}">Error</span>
 							</div>
-							<input type="hidden" name="quadroId" th:value="${quadro.id}"/>	
+							
+							<div class="form-group">
+							<label for="urlImmagine" id="label-form">Cambia l'immagine</label>
+     							<input class="form-control" id="textArea" th:field="*{image}" name="urlImage" placeholder="Inserisci l'url dell'immagine..." />
+    						</div>
+							
+							<input type="hidden" name="quadroVecchioId" th:value="${quadro.id}"/>
 						 <button type="submit" name="modificaQuadro" class="btn btn-primary confermaModifica">Conferma </button>
 						  <button type="submit" name="annullaModificaQuadro" class="btn btn-primary">Annulla </button>
 						 </form>

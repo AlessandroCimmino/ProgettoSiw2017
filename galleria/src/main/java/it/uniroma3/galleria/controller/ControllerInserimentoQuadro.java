@@ -25,24 +25,6 @@ public class ControllerInserimentoQuadro {
         model.addAttribute("autori", as.findAll());
         return "inserimentoQuadro";
     }
-
-//	@PostMapping("/mostraDatiQuadro")
-//	public String mostraDatiQuadro(@RequestParam(value="titolo") String titolo,
-//									@RequestParam(value="anno") String anno,
-//									@RequestParam(value="dimensione") String dimensione,
-//									@RequestParam(value="tecnica") String tecnica,
-//									@RequestParam(value="autoreId") Long id,
-//									Model model){
-//		Quadro quadro = new Quadro();
-//		quadro.setTitolo(titolo);
-//		quadro.setAnno(anno);
-//		quadro.setDimensione(dimensione);
-//		quadro.setTecnica(tecnica);
-//		quadro.setAutore(as.findById(id));
-//		qs.add(quadro);
-//		model.addAttribute("quadro", quadro);
-//		return "mostraDatiQuadro";
-//	}
 	
 	@PostMapping("/mostraDatiInserimentoQuadro")
 	public String mostraDatiInserimentoQuadro(@Valid @ModelAttribute Quadro quadro,

@@ -1,9 +1,13 @@
 package it.uniroma3.galleria.model;
 
+import java.net.URL;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Quadro {
@@ -27,21 +31,32 @@ public class Quadro {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Autore autore;
 	
+	private URL image;
+	
 	public Quadro(){
 		
 	}
 	
-	public Quadro(String titolo,Integer anno,String tecnica,String dimensione){
+	public Quadro(String titolo,Integer anno,String tecnica,String dimensione,URL image){
 		this.titolo=titolo;
 		this.dimensione=dimensione;
 		this.anno=anno;
 		this.dimensione=dimensione;
+		this.image=image;
 	}
 
 	public Long getId() {
 		return id;
 	}
+	
 
+	public URL getImage() {
+		return image;
+	}
+
+	public void setImage(URL image) {
+		this.image = image;
+	}
 
 	public String getTitolo() {
 		return titolo;

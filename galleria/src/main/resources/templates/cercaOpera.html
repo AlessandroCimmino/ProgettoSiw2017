@@ -109,8 +109,11 @@
 						class="col-lg-3 col-md-4 col-xs-6 thumb">
 						<div class="opera">
 							<a class="thumbnail"
-								th:href="@{/dettagliQuadro(quadroId=${quadro.id})}"> <img
-								class="img-responsive image" src="img/abstract-bg.jpg" alt="" />
+								th:href="@{/dettagliQuadro(quadroId=${quadro.id})}">
+							<img
+								class="img-responsive image"
+								th:src="${(quadro.image != null and !#strings.isEmpty(quadro.image)) ? quadro.image : '/img/abstract-bg.jpg'}"
+								th:alt="${quadro.titolo}"/>
 
 								<div class="middle">
 									<div class="descrizioneOpera"

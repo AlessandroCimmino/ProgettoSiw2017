@@ -61,4 +61,16 @@ public class QuadroService {
 		else
 			return this.cr.findByAnno(Integer.parseInt(chiave));
 	}
+
+	@Transactional
+	public void aggiorna(Quadro quadro, Long quadroVecchioId) {
+		Quadro quadroDaModificare = this.cr.findOne(quadroVecchioId);
+		quadroDaModificare.setAnno(quadro.getAnno());
+		quadroDaModificare.setAutore(quadro.getAutore());
+		quadroDaModificare.setDimensione(quadro.getDimensione());
+		quadroDaModificare.setTecnica(quadro.getTecnica());
+		quadroDaModificare.setTitolo(quadro.getTitolo());
+		quadroDaModificare.setImage(quadro.getImage());
+		this.cr.save(quadroDaModificare);
+	}
 }
