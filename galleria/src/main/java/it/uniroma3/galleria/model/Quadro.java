@@ -37,12 +37,13 @@ public class Quadro {
 		
 	}
 	
-	public Quadro(String titolo,Integer anno,String tecnica,String dimensione,URL image){
+	public Quadro(String titolo,Integer anno,String tecnica,String dimensione,URL image,Autore autore){
 		this.titolo=titolo;
-		this.dimensione=dimensione;
+		this.tecnica=tecnica;
 		this.anno=anno;
 		this.dimensione=dimensione;
 		this.image=image;
+		this.autore=autore;
 	}
 
 	public Long getId() {

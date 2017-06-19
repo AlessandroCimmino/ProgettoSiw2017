@@ -70,7 +70,7 @@
 						<div class="form-group">
     						<label for="inputTitolo" id="label-form">Titolo*:</label>
   								<input type="text" name="titolo" class="form-control" id="formGroupExampleInput" th:field="*{titolo}"/>
-  								<span class="text-muted"
+  								<span class="text-muted alert-error"
 									th:if="${#fields.hasErrors('titolo')}"
 									th:text="#{label.mandatory}">Error
 								</span>
@@ -78,21 +78,21 @@
 						<div class="form-group">
 							<label for="inputTecnica" id="label-form">Tecnica*: </label>
 									<input type="text" name="tecnica" id="textArea" class="form-control" th:field="*{tecnica}"/>
-									<span class="text-muted"
+									<span class="text-muted alert-error"
 								th:if="${#fields.hasErrors('tecnica')}"
 								th:text="#{label.mandatory}">Error</span>
 						</div>
 						<div class="form-group">
 							<label for="inputAnno" id="label-form">Anno di pubblicazione*: </label>
 									<input type="text" name="anno" id="textArea"  class="form-control" th:field="*{anno}"/>
-									<span class="text-muted"
+									<span class="text-muted alert-error"
 								th:if="${#fields.hasErrors('anno')}"
 								th:text="#{label.annoValido}">Error</span>
 							</div>
 							<div class="form-group">
 							<label for="inputDimensione" id="label-form">Dimensione*: </label>
 									<input type="text" name="dimensione" id="textArea"  class="form-control" th:field="*{dimensione}" placeholder="hhhhxwwww" /> 
-									<span class="text-muted"
+									<span class="text-muted alert-error"
 								th:if="${#fields.hasErrors('dimensione')}"
 								th:text="#{label.mandatory}">Error</span>
 							</div>
@@ -101,7 +101,7 @@
 							<label for="inputAutore" id="label-form">Autore*: </label><select name="autoreId" id="textArea" class="form-control" th:field="*{autore}">
 									<option th:each="autore : ${autori}"  th:selected="${autore.id==quadro.autore.id}" 
 									th:value="${autore.id}" th:text="${autore.nome}+' '+${autore.cognome}"></option>
-							</select><span class="text-muted" th:if="${#fields.hasErrors('autore')}"
+							</select><span class="text-muted alert-error" th:if="${#fields.hasErrors('autore')}"
 								th:text="#{label.mandatory}">Error</span>
 							</div>
 							
@@ -110,7 +110,7 @@
      							<input class="form-control" id="textArea" th:field="*{image}" name="urlImage" placeholder="Inserisci l'url dell'immagine..." />
     						</div>
 							
-							<input type="hidden" name="quadroVecchioId" th:value="${quadro.id}"/>
+							<input type="hidden" name="idQuadroPersistente" th:value="${idQuadroPersistente}"/>
 						 <button type="submit" name="modificaQuadro" class="btn btn-primary confermaModifica">Conferma </button>
 						  <button type="submit" name="annullaModificaQuadro" class="btn btn-primary">Annulla </button>
 						 </form>

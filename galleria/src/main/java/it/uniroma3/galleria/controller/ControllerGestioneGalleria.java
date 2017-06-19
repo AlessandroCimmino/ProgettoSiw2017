@@ -50,11 +50,20 @@ public class ControllerGestioneGalleria {
 	
 	@PostMapping("/modificaQuadro")
 	public String iniziaModificaQuadro(Model model,@RequestParam(value="quadroId") Long id){
-		model.addAttribute("quadro", this.qs.findById(id));
+		model.addAttribute("idQuadroPersistente", id);
 		model.addAttribute("autori", this.as.findAll());
+		Quadro quadroCopia = qs.copy(id);
+		model.addAttribute("quadro", quadroCopia);
 		return "modificaQuadro";
 	}
-
+	@RequestMapping(value="/modificaQuadro")
+	public String correggiModificaQuadro(Model model, Long idQuadroPersistente,Quadro quadro){
+		model.addAttribute("autori", this.as.findAll());
+		model.addAttribute("quadro", quadro);
+		model.addAttribute("idQuadroPersistente",idQuadroPersistente);
+		return "modificaQuadro";
+	}
+	
 //	@PostMapping("/dettagliQuadro")
 //	public String modificaAnnulla(Model model,@RequestParam(required=false,value="modificaQuadro") String modifica,
 //								@RequestParam(value="titolo") String titolo,@RequestParam(value="anno") Integer anno,
@@ -69,13 +78,13 @@ public class ControllerGestioneGalleria {
 	@PostMapping("/dettagliQuadro")
 	public String modificaAnnulla(@Valid @ModelAttribute Quadro quadro,
 			BindingResult bindingResult, Model model, @RequestParam(required=false,value="modificaQuadro") String modifica,
-			@RequestParam(value="quadroVecchioId") Long quadroVecchioId){
+			@RequestParam(value="idQuadroPersistente") Long idQuadroPersistente){
 		if (bindingResult.hasErrors()) {
-            return iniziaModificaQuadro(model, quadroVecchioId);
-        }
-		if(modifica!=null){
-			qs.aggiorna(quadro, quadroVecchioId);
+			return correggiModificaQuadro(model, idQuadroPersistente,quadro);
 		}
-		return mostraDettagliQuadro(model, quadroVecchioId);
+		if(modifica!=null){
+			qs.aggiorna(quadro, idQuadroPersistente);
+		}
+		return mostraDettagliQuadro(model, idQuadroPersistente);
 	}
 }

@@ -95,8 +95,8 @@
 				</div>
 				<div class="col-sm-4 ">
 					<p id="dettagliTitolo" th:text="${quadro.titolo}"></p>
-					<p id="dettagli"
-						th:text="${quadro.autore.nome} + '  ' + ${quadro.autore.cognome}"></p>
+					<p id="dettagli"><a th:href="@{/dettagliAutore(autoreId=${quadro.autore.id})}"
+						th:text="${quadro.autore.nome} + '  ' + ${quadro.autore.cognome}"></a></p>
 					<p id="dettagli" th:text="${quadro.anno}"></p>
 					<p id="dettagli" th:text="${quadro.dimensione}"></p>
 					<p id="dettagli" th:text="${quadro.tecnica}"></p>

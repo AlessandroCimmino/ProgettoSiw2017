@@ -73,4 +73,12 @@ public class QuadroService {
 		quadroDaModificare.setImage(quadro.getImage());
 		this.cr.save(quadroDaModificare);
 	}
+
+	public Quadro copy(Long id) {
+		Quadro quadroPersistente = this.cr.findOne(id);
+		Quadro quadroCopia = new Quadro(quadroPersistente.getTitolo(), quadroPersistente.getAnno(),
+				quadroPersistente.getTecnica(), quadroPersistente.getDimensione(), quadroPersistente.getImage(),
+				quadroPersistente.getAutore());
+		return quadroCopia;
+	}
 }

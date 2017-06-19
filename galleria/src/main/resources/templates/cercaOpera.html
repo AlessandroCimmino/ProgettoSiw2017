@@ -40,7 +40,7 @@
 
 				<ul class="nav navbar-nav navbar-left">
 					<li class="hidden"><a href="#page-top"></a></li>
-					<li><a href="/home">Home</a></li>
+					<li><a th:href="@{/home}">Home</a></li>
 					<li sec:authorize="isAuthenticated()"><a
 						th:text="#{label.gestisciGalleria}" th:href="@{/gestisciGalleria}">Gestisci
 							la galleria</a></li>

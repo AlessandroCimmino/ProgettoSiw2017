@@ -17,6 +17,8 @@ public class ControllerGalleria {
 	@Autowired
 	private QuadroService qs;
 	
+
+	
 	@GetMapping("/galleria")
 	public String visualizzaGalleria(Model model){
 		model.addAttribute("quadri", this.qs.findAll());
@@ -38,10 +40,15 @@ public class ControllerGalleria {
 		return "cercaOpera";
 	}
 	
-	
 	@RequestMapping(value="/cercaOpera",params="confermaCancellazioneQuadro")
 	public String quadroRimosso(Model model,@RequestParam(value="quadroId") Long id){
 		qs.removeById(id);
 		return visualizzaTutteLeOpere(model);
+	}
+	
+	@RequestMapping(value="/dettagliAutore")
+	public String dettagliAutore(Model model, @RequestParam(value="autoreId") Long id){
+		model.addAttribute("autore", as.findById(id));
+		return "dettagliAutore";
 	}
 }

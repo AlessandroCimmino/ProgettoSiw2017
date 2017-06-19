@@ -8,12 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-public class GalleriaApplication{
+public class GalleriaApplication extends SpringBootServletInitializer{
 
-//	@Override
-//	protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
-//		return application.sources(GalleriaApplication.class);
-//	}
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
+		return application.sources(GalleriaApplication.class);
+	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(GalleriaApplication.class, args);
