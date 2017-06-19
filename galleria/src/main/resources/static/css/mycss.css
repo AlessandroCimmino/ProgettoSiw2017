@@ -8,6 +8,16 @@ color: white;
 vertical-align: middle;
 }
 
+#salutoAdmin{
+	ont-family: "Garamond, serif";
+    font-style: italic;
+    font-size: 40px;
+    line-height: 40px;
+    padding: 25px;
+	color: white;
+	margin-top: 15%;
+}
+
 .alert-error{
 	color: red;
 }

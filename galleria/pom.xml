@@ -6,8 +6,7 @@
 	<groupId>it.uniroma3</groupId>
 	<artifactId>galleria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-
+	
 	<name>galleria</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -75,10 +74,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
-        <dependency>
+       <dependency>
         	<groupId>org.thymeleaf.extras</groupId>
         	<artifactId>thymeleaf-extras-springsecurity4</artifactId>
-        	</dependency>
+        	</dependency> 
 	</dependencies>
 	
 	
@@ -91,5 +90,6 @@
 		</plugins>
 	</build>
 
-
+	<packaging>war</packaging>
+	
 </project>
