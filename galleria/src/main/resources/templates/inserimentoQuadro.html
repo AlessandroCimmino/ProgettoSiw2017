@@ -96,12 +96,15 @@
 							
 						</div>
 						<div class="form-group">
-							<label for="inputTecnica" id="label-form">Tecnica*: </label>
-									<input type="text" class="form-control"  id="textArea" th:field="*{tecnica}"/>
-										<span class="text-muted alert-error" 
-								th:if="${#fields.hasErrors('tecnica')}"
+							<label for="inputAutore" id="label-form">Autore*: </label><select id="textArea" class="form-control" th:field="*{autore}">
+									<option th:value="NULL" th:selected="*{autore}==NULL"
+										th:text="#{label.selezionaAutore}"></option>
+									<option th:each="autoreSelezionato : ${autori}"
+										th:selected="*{autore}" th:value="${autoreSelezionato.id}"
+										th:text="${autoreSelezionato.nome}+' '+${autoreSelezionato.cognome}"></option>
+							</select> <span class="text-muted alert-error" th:if="${#fields.hasErrors('autore')}"
 								th:text="#{label.mandatory}">Error</span>
-						</div>
+							</div>
 						<div class="form-group">
 							<label for="inputAnno" id="label-form">Anno di pubblicazione*: </label>
 									<input type="text" class="form-control" id="textArea" th:field="*{anno}"/>
@@ -117,17 +120,14 @@
 								th:text="#{label.mandatory}">Error</span>
 							</div>
 
-							<div class="form-group">
-							<label for="inputAutore" id="label-form">Autore*: </label><select id="textArea" class="form-control" th:field="*{autore}">
-									<option th:value="NULL" th:selected="*{autore}==NULL"
-										th:text="#{label.selezionaAutore}"></option>
-									<option th:each="autoreSelezionato : ${autori}"
-										th:selected="*{autore}" th:value="${autoreSelezionato.id}"
-										th:text="${autoreSelezionato.nome}+' '+${autoreSelezionato.cognome}"></option>
-							</select> <span class="text-muted alert-error" th:if="${#fields.hasErrors('autore')}"
-								th:text="#{label.mandatory}">Error</span>
-							</div>
 							
+							<div class="form-group">
+							<label for="inputTecnica" id="label-form">Tecnica*: </label>
+									<input type="text" class="form-control"  id="textArea" th:field="*{tecnica}"/>
+										<span class="text-muted alert-error" 
+								th:if="${#fields.hasErrors('tecnica')}"
+								th:text="#{label.mandatory}">Error</span>
+						</div>
 							<div class="form-group">
 							<label for="urlImmagine" id="label-form">Scegli un'immagine</label>
      							<input class="form-control" id="textArea" th:field="*{image}" name="urlImage" placeholder="Inserisci l'url dell'immagine..." />
